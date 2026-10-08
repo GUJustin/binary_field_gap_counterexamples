@@ -1,0 +1,771 @@
+/-
+Copyright (c) 2026 Binary Field Counterexamples Contributors.
+Released under Apache 2.0 license.
+-/
+module
+
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesCertainFailureFull
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesPolynomialCount
+public import BinaryFieldCounterexamples.MainTheorems.ExactHalfAgreementProbability
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonFull
+public import BinaryFieldCounterexamples.Constructions.AllRates.SubspaceAsymptotics
+
+public import BinaryFieldCounterexamples.BooleanFunctions.NormalForm
+public import BinaryFieldCounterexamples.BooleanFunctions.Degree
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeParity
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeAffine
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeCharacterization
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeLeading
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeSelector
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeProducts
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeBlockSupport
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeBlocks
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeRoot
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeQuotient
+public import BinaryFieldCounterexamples.BooleanFunctions.HeightTwo
+public import BinaryFieldCounterexamples.BooleanFunctions.HeightTwoQuotient
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeBranch
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeBranchCoordinates
+public import BinaryFieldCounterexamples.BooleanFunctions.DegreeAffineBranchRoot
+
+public import BinaryFieldCounterexamples.CollisionCounting
+
+public import BinaryFieldCounterexamples.ReciprocalAgreement
+
+public import BinaryFieldCounterexamples.Agreement.Basic
+
+public import BinaryFieldCounterexamples.Agreement.Projection
+
+public import BinaryFieldCounterexamples.Polynomial.SubspacePolynomial
+
+public import BinaryFieldCounterexamples.Polynomial.BinarySupport
+
+public import BinaryFieldCounterexamples.Counting.CollisionAveraging
+
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnson
+
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonCompanions
+
+public import BinaryFieldCounterexamples.MainTheorems.RateEighthFinite
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FunctionalInterpolants
+
+public import BinaryFieldCounterexamples.MainTheorems.DenseRateCoverage
+public import BinaryFieldCounterexamples.Agreement.Interpolation
+public import BinaryFieldCounterexamples.Constructions.PoleReduction
+public import BinaryFieldCounterexamples.Constructions.Gold.HighMoments
+public import BinaryFieldCounterexamples.Constructions.Gold.MomentWindowIff
+public import BinaryFieldCounterexamples.Constructions.ExactHalfAgreement.SourceBound
+public import BinaryFieldCounterexamples.Constructions.ExactHalfAgreement.FunctionalCharacterization
+
+public import BinaryFieldCounterexamples.MainTheorems.ExactHalfAgreement
+public import BinaryFieldCounterexamples.Constructions.Gold.QuotientLocator
+
+public import BinaryFieldCounterexamples.MainTheorems.TreeSupportAsymptotics
+public import BinaryFieldCounterexamples.Constructions.Gold.QuadraticCharacters
+public import BinaryFieldCounterexamples.Constructions.Gold.Distinctness
+
+public import BinaryFieldCounterexamples.Constructions.Gold.Family
+
+public import BinaryFieldCounterexamples.Constructions.Gold.MatrixRank
+
+public import BinaryFieldCounterexamples.Constructions.Gold.MinimumRank
+
+public import BinaryFieldCounterexamples.Constructions.Gold.MomentKernel
+
+public import BinaryFieldCounterexamples.Constructions.Gold.DimensionArithmetic
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PairWitnesses
+
+public import BinaryFieldCounterexamples.Constructions.Gold.Collisions
+
+public import BinaryFieldCounterexamples.Constructions.Gold.Assembly
+
+public import BinaryFieldCounterexamples.Constructions.Gold.RankParity
+
+public import BinaryFieldCounterexamples.Counting.BinaryFourier
+
+public import BinaryFieldCounterexamples.Constructions.Gold.AlternatingFourier
+
+public import BinaryFieldCounterexamples.Counting.GaussianIdentities
+
+public import BinaryFieldCounterexamples.Constructions.Gold.AlternatingCoordinates
+
+public import BinaryFieldCounterexamples.Constructions.Gold.BorderedRank
+
+public import BinaryFieldCounterexamples.Counting.AlternatingRankFormula
+
+public import BinaryFieldCounterexamples.Constructions.Gold.TensorBorder
+
+public import BinaryFieldCounterexamples.Constructions.Gold.RankCounts
+
+public import BinaryFieldCounterexamples.Constructions.Gold.HyperbolicSplit
+
+public import BinaryFieldCounterexamples.Counting.GaussianFourierTransform
+
+public import BinaryFieldCounterexamples.Constructions.Gold.HyperbolicAugment
+
+public import BinaryFieldCounterexamples.Constructions.Gold.TensorCongruence
+
+public import BinaryFieldCounterexamples.Constructions.Gold.HyperbolicBasis
+
+public import BinaryFieldCounterexamples.Constructions.Gold.BasisCongruence
+
+public import BinaryFieldCounterexamples.Constructions.Gold.HyperbolicCharacter
+
+public import BinaryFieldCounterexamples.Constructions.Gold.AlternatingRankParity
+
+public import BinaryFieldCounterexamples.Constructions.Gold.WeightedFourier
+
+public import BinaryFieldCounterexamples.Constructions.Gold.MinimumRankPopulation
+
+public import BinaryFieldCounterexamples.Constructions.Gold.MomentPopulation
+
+public import BinaryFieldCounterexamples.Constructions.Gold.BoundedAssembly
+
+public import BinaryFieldCounterexamples.MainTheorems.GoldCounting
+
+public import BinaryFieldCounterexamples.Constructions.Gold.DualRetention
+
+public import BinaryFieldCounterexamples.Constructions.Gold.EnergyLowerBound
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FiniteExtensions
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedBudget
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedPowerGrowth
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedThresholdParameters
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingIntersections
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingPolynomials
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingRadicals
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingSourceBound
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingWitnesses
+
+public import BinaryFieldCounterexamples.Constructions.Gold.SubspaceIncidence
+
+public import BinaryFieldCounterexamples.Counting.GaussianLowerBound
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedThresholdTheorem
+
+public import BinaryFieldCounterexamples.Constructions.Gold.NativeCertificate
+
+public import BinaryFieldCounterexamples.MainTheorems.SuperpolynomialNearJohnson
+
+public import BinaryFieldCounterexamples.Constructions.Gold.DenseBounds
+
+public import BinaryFieldCounterexamples.Constructions.Gold.DenseFiniteAssembly
+
+public import BinaryFieldCounterexamples.Constructions.Gold.HalfRateConstruction
+
+public import BinaryFieldCounterexamples.Constructions.Gold.NativeConstruction
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingAssembly
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingPool
+
+public import BinaryFieldCounterexamples.Constructions.Gold.PaddingProperty
+
+public import BinaryFieldCounterexamples.Counting.ExteriorIncidence
+
+public import BinaryFieldCounterexamples.MainTheorems.Native128Example
+
+public import BinaryFieldCounterexamples.Constructions.Gold.DenseAsymptoticTheorem
+
+public import BinaryFieldCounterexamples.Constructions.Gold.DenseParameters
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AffineOrbits
+
+public import BinaryFieldCounterexamples.Constructions.Trees.Leaves
+
+public import BinaryFieldCounterexamples.Constructions.Trees.Templates
+
+public import BinaryFieldCounterexamples.Counting.RationalCollision
+
+public import BinaryFieldCounterexamples.Polynomial.LocatorProducts
+
+public import BinaryFieldCounterexamples.Constructions.NormalizedPoleReduction
+
+public import BinaryFieldCounterexamples.Constructions.SupportIncidenceAssembly
+
+public import BinaryFieldCounterexamples.Constructions.Trees.BranchRecovery
+
+public import BinaryFieldCounterexamples.Constructions.Trees.FinitePair
+
+public import BinaryFieldCounterexamples.Constructions.Trees.PullbackProperties
+
+public import BinaryFieldCounterexamples.Constructions.Trees.StabilizerForms
+
+public import BinaryFieldCounterexamples.Constructions.Trees.SupportFamily
+
+public import BinaryFieldCounterexamples.Constructions.Trees.SupportLocators
+
+public import BinaryFieldCounterexamples.Constructions.Trees.SurjectivePullbacks
+
+public import BinaryFieldCounterexamples.Polynomial.AffineFlatLocators
+
+public import BinaryFieldCounterexamples.Agreement.OrdinaryListTransfer
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingBaseRestriction
+
+public import BinaryFieldCounterexamples.Constructions.Trees.BaseCount
+
+public import BinaryFieldCounterexamples.Constructions.Trees.BinaryFrames
+
+public import BinaryFieldCounterexamples.Constructions.Trees.DomainPair
+
+public import BinaryFieldCounterexamples.Constructions.Trees.SurjectiveLinearCount
+
+public import BinaryFieldCounterexamples.Constructions.Trees.TemplateCounts
+
+public import BinaryFieldCounterexamples.Counting.CollisionAsymptotics
+
+public import BinaryFieldCounterexamples.Counting.CollisionSaturation
+
+public import BinaryFieldCounterexamples.Counting.TreeWholeGrowth
+
+public import BinaryFieldCounterexamples.MainTheorems.HalfRateDecisionTrees
+
+public import BinaryFieldCounterexamples.Agreement.SourceConversion
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingBaseCore
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingBaseFrames
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingCore
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingFamily
+
+public import BinaryFieldCounterexamples.Constructions.Trees.BaseAvoidingFamily
+
+public import BinaryFieldCounterexamples.Constructions.Trees.BaseLinearFrames
+
+public import BinaryFieldCounterexamples.Constructions.Trees.ConstrainedFrames
+
+public import BinaryFieldCounterexamples.Constructions.Trees.ConstrainedLinearPullbacks
+
+public import BinaryFieldCounterexamples.Constructions.Trees.HalfAgreementAsymptotic
+
+public import BinaryFieldCounterexamples.Constructions.Trees.HalfRateProbability
+
+public import BinaryFieldCounterexamples.Constructions.Trees.JointSurjectiveCount
+
+public import BinaryFieldCounterexamples.Constructions.Trees.OriginStabilizers
+
+public import BinaryFieldCounterexamples.Counting.PaddedIncidence
+
+public import BinaryFieldCounterexamples.Constructions.PaddedPoleAssembly
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingCounts
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingDomainPair
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingFibers
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingPair
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingRoots
+
+public import BinaryFieldCounterexamples.Constructions.Trees.AvoidingSupports
+
+public import BinaryFieldCounterexamples.Constructions.Trees.FrameArithmetic
+
+public import BinaryFieldCounterexamples.Constructions.Trees.RootFrameCounts
+
+public import BinaryFieldCounterexamples.Constructions.Trees.RootFrames
+
+public import BinaryFieldCounterexamples.Constructions.Trees.TemplateZeroOrbit
+
+public import BinaryFieldCounterexamples.Agreement.SourceConversionPair
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.AffineLabels
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.BaseClauses
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.DomainPair
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.ExtensionParameters
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.FinitePadding
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.FiniteSeed
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.GraphPopulation
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.LabelRecovery
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.LocatorCancellation
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.Padding
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.Parameters
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.PowerParameters
+
+public import BinaryFieldCounterexamples.Counting.AffineLabelPooling
+
+public import BinaryFieldCounterexamples.Counting.AllRateBounds
+
+public import BinaryFieldCounterexamples.Polynomial.LocatorElimination
+
+public import BinaryFieldCounterexamples.Polynomial.LocatorPrefixInjectivity
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.ExtensionPadding
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.ExtensionSeed
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.HighExtensionClause
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.ProperExtensionClause
+
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesCertainFailure
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.Numerator
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SourceBound
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticLocatorConversion
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticLocatorRoots
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.BalancedPaddingTransfer
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.DomainSource
+
+public import BinaryFieldCounterexamples.Counting.BalancedPadding
+
+public import BinaryFieldCounterexamples.Polynomial.PrimePowerSupport
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticDifferential
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.RestrictedWalsh
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.ScalarZeroCount
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.TraceRank
+
+public import BinaryFieldCounterexamples.Constructions.Gold.RankRestriction
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.RadicalRoots
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceCoefficients
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TracePolar
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TracePolynomial
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceQuadratic
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceRootBound
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ZeroBound
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.ErrorBounds
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.PaddingBounds
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.Coordinates
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ParameterCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceCode
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceRadical
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceTranslation
+
+public import BinaryFieldCounterexamples.Counting.GaussianGrowth
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ExactRank
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.RestrictedCharacters
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SupportedCount
+
+public import BinaryFieldCounterexamples.Counting.GaussianInversion
+
+public import BinaryFieldCounterexamples.Counting.QuadraticCharacterDoubleSum
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperbolicSplit
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperbolicZeroCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.IsotropicDimension
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.RadicalQuotient
+
+public import BinaryFieldCounterexamples.Counting.GaussianReconstruction
+
+public import BinaryFieldCounterexamples.Counting.QuadraticIncidenceReconstruction
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.DegenerateZeroCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.FlagRecurrence
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.QuotientIncidence
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.RadicalLineQuotient
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularFlags
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularLineFlags
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularLineQuotient
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularLines
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ThroughLineCounts
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ZeroClassification
+
+public import BinaryFieldCounterexamples.Counting.ContainingSubspaceCount
+
+public import BinaryFieldCounterexamples.Counting.SubspaceGaussianCount
+
+public import BinaryFieldCounterexamples.Counting.SupportedRankFiber
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularDimension
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularProducts
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularRadicalConvolution
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularUniformity
+
+public import BinaryFieldCounterexamples.Counting.ComplementCount
+
+public import BinaryFieldCounterexamples.Counting.QuadraticCodeIncidence
+
+public import BinaryFieldCounterexamples.Counting.QuadraticComplexMoments
+
+public import BinaryFieldCounterexamples.Counting.QuadraticRankTransform
+
+public import BinaryFieldCounterexamples.Counting.QuotientComplementCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperbolicIncidenceRecurrence
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SingularClosedCounts
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceDegree
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceFactors
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceLocators
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceTranslationCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TranslationCount
+
+public import BinaryFieldCounterexamples.Counting.GaussianPascalAlternate
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticFactorDegrees
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticFactorExistence
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ActualHyperbolicIncidence
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ActualHyperbolicKernel
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperbolicKernelStep
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.RankCharacterKernel
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceDilation
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceListFamily
+
+public import BinaryFieldCounterexamples.Counting.GaussianMobiusParity
+
+public import BinaryFieldCounterexamples.Counting.QuadraticKernelPropagation
+
+public import BinaryFieldCounterexamples.Counting.QuadraticRankOneWeight
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticConversionCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.AnisotropicRadicalBase
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceHyperplane
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceRadicalIncidence
+
+public import BinaryFieldCounterexamples.Counting.AnisotropicGroupedKernel
+
+public import BinaryFieldCounterexamples.Counting.AnisotropicPlaneKernel
+
+public import BinaryFieldCounterexamples.Counting.AnisotropicWeightedBase
+
+public import BinaryFieldCounterexamples.Counting.GaussianBackwardDifference
+
+public import BinaryFieldCounterexamples.Counting.SymmetricZeroKernel
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ActualAnisotropicBase
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ActualWeightedInduction
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ActualWeightedStep
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.ActualZeroBase
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.RankOneKernelIdentification
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceDescent
+
+public import BinaryFieldCounterexamples.Counting.QuadraticKernelTails
+
+public import BinaryFieldCounterexamples.Counting.QuadraticSingleMomentPopulation
+
+public import BinaryFieldCounterexamples.Counting.QuadraticWeightedChains
+
+public import BinaryFieldCounterexamples.Polynomial.FiniteImageDescent
+
+public import BinaryFieldCounterexamples.Polynomial.QLinearizedDescent
+
+public import BinaryFieldCounterexamples.Polynomial.SimpleRootComposition
+
+public import BinaryFieldCounterexamples.Polynomial.SparseCompositionDescent
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.FullfieldConstruction
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.FullfieldList
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperplaneFiberCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperplaneList
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperplaneListFamily
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceHyperplaneCount
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceHyperplaneDegree
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceHyperplaneFactors
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceHyperplaneFamily
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceHyperplaneLocators
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TracePopulation
+
+public import BinaryFieldCounterexamples.Counting.QuadraticCodePopulation
+
+public import BinaryFieldCounterexamples.Counting.QuadraticLiteralMoments
+
+public import BinaryFieldCounterexamples.Polynomial.CompositionDivisibility
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.DomainSeed
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.FinitePadding
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.OrdinaryAsymptotic
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.OrdinaryPolePair
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.PairAsymptotic
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.RateGap
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.SeedList
+
+public import BinaryFieldCounterexamples.Constructions.DenseAllRates.TraceRestriction
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.FactorCollisions
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.FactorTransport
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.FullfieldSparseFamily
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.HyperplaneSparseFamily
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.MappedFactorCollisions
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.NumeratorTransport
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.Numerics
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SparseFamilyPopulation
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.TraceFactorProperties
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.VariableHeadPairReduction
+
+public import BinaryFieldCounterexamples.Counting.QuadraticListCount
+
+public import BinaryFieldCounterexamples.Polynomial.ConversionFamilyProperties
+
+public import BinaryFieldCounterexamples.Polynomial.QuadraticFactorSupport
+
+public import BinaryFieldCounterexamples.MainTheorems.DenseAllRates
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.MappedDomainSource
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.PrescribedSparseFamily
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.SparsePairAssembly
+
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticForms
+
+public import BinaryFieldCounterexamples.Constructions.NearUnit.AdditivePreimages
+
+public import BinaryFieldCounterexamples.Constructions.NearUnit.LocatorIdentity
+
+public import BinaryFieldCounterexamples.Agreement.ExcludeZero
+
+public import BinaryFieldCounterexamples.Polynomial.SubspaceFrobeniusCommute
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedExtensionEnergy
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedExtensionFinite
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedExtensionParameters
+
+public import BinaryFieldCounterexamples.Constructions.Gold.OptimalFixedThreshold
+
+public import BinaryFieldCounterexamples.Constructions.Gold.OptimalHyperplaneThreshold
+
+public import BinaryFieldCounterexamples.MainTheorems.OptimalFixedThreshold
+
+public import BinaryFieldCounterexamples.Constructions.Gold.FixedExtensionAsymptotic
+
+public import BinaryFieldCounterexamples.MainTheorems.FixedExtensionGold
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.CanonicalSourceAgreement
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ChallengeShift
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ClassificationCoordinates
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ClassificationElimination
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ClassificationExactRoots
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ClassificationHighAgreement
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ClassificationProfile
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.ExactChallengeSets
+
+public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.QuarticFactorAdditive
+
+public import BinaryFieldCounterexamples.Counting.BinaryCodimTwoExact
+
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonExact
+
+public import BinaryFieldCounterexamples.Constructions.AllRates.UnpaddedFamily
+public import BinaryFieldCounterexamples.Constructions.AllRates.UnpaddedSources
+public import BinaryFieldCounterexamples.Constructions.Gold.ExactRetention
+public import BinaryFieldCounterexamples.Constructions.Gold.ExactRetentionProbability
+public import BinaryFieldCounterexamples.Constructions.Gold.FullFieldExtensionAsymptotic
+public import BinaryFieldCounterexamples.Constructions.Gold.FullFieldExtensionParameters
+public import BinaryFieldCounterexamples.Constructions.Gold.Native128Certificate
+public import BinaryFieldCounterexamples.Counting.SpanningSubspaceCount
+public import BinaryFieldCounterexamples.MainTheorems.FullFieldExtensionGold
+public import BinaryFieldCounterexamples.MainTheorems.UnpaddedCodimension
+
+public import BinaryFieldCounterexamples.MainTheorems.OrdinaryListAsymptotics
+
+public import BinaryFieldCounterexamples.MainTheorems.HigherRateLengthening
+public import BinaryFieldCounterexamples.MainTheorems.GoldAllRates
+public import BinaryFieldCounterexamples.Agreement.SourceConversionConverse
+public import BinaryFieldCounterexamples.Constructions.Gold.ArbitraryPaddingSourceBound
+public import BinaryFieldCounterexamples.Constructions.NearUnit.BooleanComplementConversion
+public import BinaryFieldCounterexamples.Constructions.NearUnit.BooleanWitnessInterface
+public import BinaryFieldCounterexamples.Constructions.NearUnit.BooleanWitnessMapped
+public import BinaryFieldCounterexamples.Constructions.NearUnit.ComplementConversion
+public import BinaryFieldCounterexamples.Constructions.NearUnit.MappedBooleanFactor
+public import BinaryFieldCounterexamples.MainTheorems.Longfellow
+public import BinaryFieldCounterexamples.Polynomial.AdditiveComposition
+public import BinaryFieldCounterexamples.Counting.GaussianSharpBound
+public import BinaryFieldCounterexamples.Constructions.Gold.RetentionLimit
+
+public import BinaryFieldCounterexamples.Polynomial.LocatorProductsGeneral
+public import BinaryFieldCounterexamples.Counting.CollisionSimplifiedBound
+public import BinaryFieldCounterexamples.Constructions.Trees.FlatsToChallenges
+
+public import BinaryFieldCounterexamples.MainTheorems.RateEighthProbability
+public import BinaryFieldCounterexamples.MainTheorems.HalfRateBinius64
+public import BinaryFieldCounterexamples.MainTheorems.TreeConcrete
+
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Essential
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Definition
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Quotient
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.HeightTwo
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Bridge
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Structure
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.CountRecurrence
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Counts
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.PrescribedSpace
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.RootData
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.TreeDegree
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.DegreeStructure
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.RootCounting
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.PaperCorollaries
+public import BinaryFieldCounterexamples.MainTheorems.IntrinsicTrees
+
+public import BinaryFieldCounterexamples.Counting.SectionThreeCompanions
+public import BinaryFieldCounterexamples.Counting.GaussianInfiniteProduct
+public import BinaryFieldCounterexamples.Constructions.PoleReductionFull
+public import BinaryFieldCounterexamples.Polynomial.SectionThreeCanonical
+public import BinaryFieldCounterexamples.Polynomial.SectionThreeAdditivity
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.AffineQuarterSource
+public import BinaryFieldCounterexamples.Constructions.NearUnit.BooleanLocatorConverse
+public import BinaryFieldCounterexamples.Constructions.Gold.FullSource
+public import BinaryFieldCounterexamples.Constructions.Gold.FullLocatorFamily
+public import BinaryFieldCounterexamples.Constructions.Gold.PerTensorFamily
+public import BinaryFieldCounterexamples.Constructions.Gold.LevelLocator
+public import BinaryFieldCounterexamples.Constructions.Gold.LabelsFull
+public import BinaryFieldCounterexamples.Constructions.Gold.RankDegreeFull
+public import BinaryFieldCounterexamples.Constructions.Gold.QuadraticRepresentation
+public import BinaryFieldCounterexamples.Constructions.Gold.FullFieldLabels
+public import BinaryFieldCounterexamples.Constructions.Gold.ParameterRemarks
+public import BinaryFieldCounterexamples.MainTheorems.GoldCountingFullSource
+public import BinaryFieldCounterexamples.MainTheorems.DenseHalfRate
+public import BinaryFieldCounterexamples.MainTheorems.HigherRateLengtheningFull
+public import BinaryFieldCounterexamples.MainTheorems.DenseSmallCodimension
+public import BinaryFieldCounterexamples.Constructions.Gold.CompleteLocators
+public import BinaryFieldCounterexamples.Constructions.Gold.RankTwo
+public import BinaryFieldCounterexamples.Agreement.DomainTranslation
+public import BinaryFieldCounterexamples.Agreement.SubfieldExceptionalBound
+public import BinaryFieldCounterexamples.Constructions.Gold.BiniusBasis
+public import BinaryFieldCounterexamples.Constructions.Gold.LargerExtension
+public import BinaryFieldCounterexamples.Constructions.Longfellow.Domain
+public import BinaryFieldCounterexamples.Constructions.Longfellow.DomainCoordinates
+public import BinaryFieldCounterexamples.Constructions.Longfellow.AlignedBlocks
+public import BinaryFieldCounterexamples.Constructions.Longfellow.NonAffineDomain
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.EllipticType
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.AffineLevelElliptic
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.AffineQuadraticShift
+public import BinaryFieldCounterexamples.Constructions.QuadraticForms.LevelCountArithmetic
+public import BinaryFieldCounterexamples.Constructions.Trees.FlatsToChallengesFull
+public import BinaryFieldCounterexamples.Constructions.Trees.HeightThreeFormula
+public import BinaryFieldCounterexamples.Constructions.Trees.HeightThreeLimit
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Avoiding
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.CountingFull
+public import BinaryFieldCounterexamples.Constructions.Trees.Intrinsic.Minimality
+public import BinaryFieldCounterexamples.Constructions.Trees.SharpEnergy
+public import BinaryFieldCounterexamples.MainTheorems.AffineTranslateExamples
+public import BinaryFieldCounterexamples.MainTheorems.ApplicationDecimals
+public import BinaryFieldCounterexamples.MainTheorems.FrontMatterProbability
+public import BinaryFieldCounterexamples.MainTheorems.IntrinsicAvoidingTrees
+public import BinaryFieldCounterexamples.MainTheorems.LargerExtensionNearJohnson
+public import BinaryFieldCounterexamples.MainTheorems.LongfellowSpecification
+public import BinaryFieldCounterexamples.MainTheorems.Native32List
+public import BinaryFieldCounterexamples.MainTheorems.PrimePowerPairAsymptotics
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticPopulationBound
+public import BinaryFieldCounterexamples.MainTheorems.TreeGrowthCorollaries
+public import BinaryFieldCounterexamples.MainTheorems.TreeSubfield
+
+public import BinaryFieldCounterexamples.Agreement.ThresholdGaps
+public import BinaryFieldCounterexamples.Agreement.ProseConsequences
+public import BinaryFieldCounterexamples.Counting.ProseLogarithms
+public import BinaryFieldCounterexamples.Constructions.Trees.HeightTwoDecompositions
+public import BinaryFieldCounterexamples.MainTheorems.ProseArithmetic
+public import BinaryFieldCounterexamples.MainTheorems.FixedExtensionExpansion
+public import BinaryFieldCounterexamples.MainTheorems.DiscussionConsequences
+public import BinaryFieldCounterexamples.Arithmetic.BinaryMultiplicativeDomains
+public import BinaryFieldCounterexamples.MainTheorems.FixedAgreementListObstruction
+public import BinaryFieldCounterexamples.MainTheorems.FullFieldFixedAgreementLists

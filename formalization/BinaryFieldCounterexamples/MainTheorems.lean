@@ -1,0 +1,69 @@
+/-
+Copyright (c) 2026 Binary Field Counterexamples Contributors.
+Released under Apache 2.0 license.
+-/
+module
+
+public import BinaryFieldCounterexamples.MainTheorems.AffineTranslateExamples
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesCertainFailure
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesCertainFailureFull
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesPolynomialCount
+public import BinaryFieldCounterexamples.MainTheorems.ApplicationDecimals
+public import BinaryFieldCounterexamples.MainTheorems.DenseAllRates
+public import BinaryFieldCounterexamples.MainTheorems.DenseHalfRate
+public import BinaryFieldCounterexamples.MainTheorems.DenseRateCoverage
+public import BinaryFieldCounterexamples.MainTheorems.DenseSmallCodimension
+public import BinaryFieldCounterexamples.MainTheorems.ExactHalfAgreement
+public import BinaryFieldCounterexamples.MainTheorems.ExactHalfAgreementProbability
+public import BinaryFieldCounterexamples.MainTheorems.FixedExtensionGold
+public import BinaryFieldCounterexamples.MainTheorems.FrontMatterProbability
+public import BinaryFieldCounterexamples.MainTheorems.FullFieldExtensionGold
+public import BinaryFieldCounterexamples.MainTheorems.GoldAllRates
+public import BinaryFieldCounterexamples.MainTheorems.GoldCounting
+public import BinaryFieldCounterexamples.MainTheorems.GoldCountingFullSource
+public import BinaryFieldCounterexamples.MainTheorems.HalfRateBinius64
+public import BinaryFieldCounterexamples.MainTheorems.HalfRateDecisionTrees
+public import BinaryFieldCounterexamples.MainTheorems.HigherRateLengthening
+public import BinaryFieldCounterexamples.MainTheorems.HigherRateLengtheningFull
+public import BinaryFieldCounterexamples.MainTheorems.IntrinsicAvoidingTrees
+public import BinaryFieldCounterexamples.MainTheorems.IntrinsicTrees
+public import BinaryFieldCounterexamples.MainTheorems.LargerExtensionNearJohnson
+public import BinaryFieldCounterexamples.MainTheorems.Longfellow
+public import BinaryFieldCounterexamples.MainTheorems.LongfellowSpecification
+public import BinaryFieldCounterexamples.MainTheorems.Native128Example
+public import BinaryFieldCounterexamples.MainTheorems.Native32List
+public import BinaryFieldCounterexamples.MainTheorems.OptimalFixedThreshold
+public import BinaryFieldCounterexamples.MainTheorems.OrdinaryListAsymptotics
+public import BinaryFieldCounterexamples.MainTheorems.PrimePowerPairAsymptotics
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticForms
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnson
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonCompanions
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonExact
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonFull
+public import BinaryFieldCounterexamples.MainTheorems.QuadraticPopulationBound
+public import BinaryFieldCounterexamples.MainTheorems.RateEighthFinite
+public import BinaryFieldCounterexamples.MainTheorems.RateEighthProbability
+public import BinaryFieldCounterexamples.MainTheorems.SuperpolynomialNearJohnson
+public import BinaryFieldCounterexamples.MainTheorems.TreeConcrete
+public import BinaryFieldCounterexamples.MainTheorems.TreeGrowthCorollaries
+public import BinaryFieldCounterexamples.MainTheorems.TreeSubfield
+public import BinaryFieldCounterexamples.MainTheorems.TreeSupportAsymptotics
+public import BinaryFieldCounterexamples.MainTheorems.UnpaddedCodimension
+
+public import BinaryFieldCounterexamples.MainTheorems.ProseArithmetic
+public import BinaryFieldCounterexamples.MainTheorems.FixedExtensionExpansion
+public import BinaryFieldCounterexamples.MainTheorems.DiscussionConsequences
+
+public import BinaryFieldCounterexamples.MainTheorems.FixedAgreementListObstruction
+
+public import BinaryFieldCounterexamples.MainTheorems.FullFieldFixedAgreementLists
+
+/-!
+# Main theorem statements
+
+This entry point imports the public Lean statements that correspond to
+results in the current manuscript, including the Longfellow application (Corollary 5.19). Each file in `MainTheorems/`
+records its paper statement, page, and proof status; `README.md` gives the
+coverage table. All imported statements are proved
+without admissions.
+-/

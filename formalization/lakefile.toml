@@ -1,0 +1,15 @@
+name = "binaryFieldCounterexamples"
+version = "0.1.0"
+defaultTargets = ["BinaryFieldCounterexamples", "BinaryFieldCounterexamples.MainTheorems"]
+
+[leanOptions]
+autoImplicit = false
+
+[[require]]
+name = "Arklib"
+git = "https://github.com/Verified-zkEVM/ArkLib.git"
+rev = "fa14552d40e793f2ea26e65c440306aae0c08a26"
+
+[[lean_lib]]
+name = "BinaryFieldCounterexamples"
+requiresModuleSystem = true
