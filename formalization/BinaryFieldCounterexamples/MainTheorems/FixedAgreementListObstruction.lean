@@ -9,7 +9,7 @@ public import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 /-!
 # No polynomial decoding-list bound at fixed agreement below Johnson
 
-The abstract and Section 1, lines 158--159 and 348--349, draw this consequence
+The abstract and Section 1, lines 158--159 and 351--352, draw this consequence
 of the dense Gold construction. Fix a density codimension, a positive
 agreement fraction strictly below `1/2`, and a proposed bound `C₀ N^b`.
 Every sufficiently large prescribed dense binary additive domain has an actual
@@ -23,7 +23,7 @@ namespace BinaryFieldCounterexamples
 open Filter
 open Polynomial
 
-/-- Abstract and Section 1, lines 158--159 and 348--349: at every positive
+/-- Abstract and Section 1, lines 158--159 and 351--352: at every positive
 fixed agreement fraction below the quarter-rate Johnson limit, dense binary
 Reed--Solomon decoding lists exceed every proposed polynomial bound. The cutoff
 precedes the containing field and each prescribed domain, whose alphabet size
@@ -113,7 +113,7 @@ theorem fixed_agreement_dense_ordinary_list_obstruction
     obtain ⟨hdegree,hagreement⟩ := hps q hq
     exact ⟨hdegree,hthreshold.trans hagreement⟩
 
-/-- Section 1, lines 348--349: an explicit list containing every qualifying
+/-- Section 1, lines 351--352: an explicit list containing every qualifying
 codeword must contain at least as many entries as the actual decoding list.
 Repeated output words do not evade this lower bound. -/
 theorem ordinaryList_explicit_output_length
@@ -135,7 +135,7 @@ theorem ordinaryList_explicit_output_length
   rw [strictDegree_codeword_image_card D K hK ps (fun q hq => (hps q hq).1)] at hcard
   exact hL.trans (hcard.trans (List.toFinset_card_le output))
 
-/-- Section 1, lines 348--349: at any fixed positive agreement below the
+/-- Section 1, lines 351--352: at any fixed positive agreement below the
 quarter-rate Johnson limit, explicitly outputting all qualifying codewords
 requires more than every prescribed polynomial number of entries. This is a
 statement about the actual output list length, independent of a machine-cost
@@ -167,7 +167,7 @@ theorem fixed_agreement_dense_explicit_output_obstruction
   intro output houtput
   exact hlarge.trans_le (by exact_mod_cast hw output houtput)
 
-/-- Section 1, lines 348--349: in the standard explicit-output cost
+/-- Section 1, lines 351--352: in the standard explicit-output cost
 convention where listing each codeword costs at least one step, no fixed
 polynomial step budget suffices. The cost hypothesis states only this output
 convention; the strictly larger lower bound follows from actual decoding lists. -/

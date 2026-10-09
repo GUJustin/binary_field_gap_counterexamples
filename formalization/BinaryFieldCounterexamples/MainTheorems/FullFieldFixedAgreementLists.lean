@@ -9,7 +9,7 @@ public import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 /-!
 # Fixed-agreement list obstructions at every scalar-field rate
 
-Section 1, lines 345--349, states the fixed-threshold list obstruction at all
+Section 1, lines 348--352, states the fixed-threshold list obstruction at all
 rates supplied by Corollary 5.23, including the binary rates `4^(-k)`.
 For a fixed finite scalar field of size `b`, every positive agreement fraction
 below `1/b` admits lists exceeding every proposed polynomial bound, uniformly
@@ -23,7 +23,7 @@ namespace BinaryFieldCounterexamples
 open Filter
 open Polynomial
 
-/-- Section 1, lines 345--349: at every scalar-field rate `1/b^2`,
+/-- Section 1, lines 348--352: at every scalar-field rate `1/b^2`,
 Corollary 5.23 rules out a polynomial decoding-list bound at each positive
 fixed agreement below Johnson. The dimension cutoff precedes every extension
 field; the full domain and alphabet both have cardinality `N`, and the actual
@@ -112,7 +112,7 @@ theorem full_field_fixed_agreement_ordinary_list_obstruction
     obtain ⟨hdegree,hagreement⟩ := hfamily q hq
     exact ⟨hdegree,hthreshold.trans hagreement.ge⟩
 
-/-- Section 1, lines 348--349: at every scalar-field rate `1/b^2`,
+/-- Section 1, lines 351--352: at every scalar-field rate `1/b^2`,
 an explicit output list containing all codewords above any fixed agreement
 below `1/b` has more than every proposed polynomial number of entries. This
 includes all binary scalar-field rates `4^(-k)` and allows repeated outputs. -/
@@ -144,7 +144,7 @@ theorem full_field_fixed_agreement_explicit_output_obstruction
   intro output houtput
   exact hlarge.trans_le (by exact_mod_cast hw output houtput)
 
-/-- Section 1, lines 348--349: the same scalar-field list obstruction
+/-- Section 1, lines 351--352: the same scalar-field list obstruction
 excludes every polynomial step budget under the standard explicit-output
 convention that listing each codeword costs at least one step. This is a
 combinatorial output-cost statement, not a machine-level complexity model. -/

@@ -193,7 +193,7 @@ theorem prose_sixteenth_rate_johnson_percentage :
   rw [h]
   norm_num
 
-/-- Introduction, lines 282--283: the soundness ceilings `20` and `27`
+/-- Introduction, lines 285--286: the soundness ceilings `20` and `27`
 are respectively `108` and `101` bits below the stated `128`-bit target. -/
 theorem prose_tree_bit_shortfalls :
     (128 - 20 : ℕ) = 108 ∧ (128 - 27 : ℕ) = 101 ∧
