@@ -7,7 +7,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.FixedExtensionAsympt
 /-!
 # Main theorem: fixed-extension Gold probability with the exact leading constant
 
-Paper statement: [Corollary 5.3, p. 38](../../../binary-field-counterexamples.pdf#page=38). Fix an extension exponent e≥2. For
+Paper statement: [Corollary 5.3, p. 36](../../../binary-field-counterexamples.pdf#page=36). Fix an extension exponent e≥2. For
 arbitrarily small positive error ε, all sufficiently large n admit the paper's
 bound uniformly over finite binary fields B,F of cardinalities 2^(2n) and
 (2^(2n))^e, every embedding, every binary hyperplane D, and every translate.

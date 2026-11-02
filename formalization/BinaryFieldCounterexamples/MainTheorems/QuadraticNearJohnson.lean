@@ -19,7 +19,7 @@ classification above 2K agreements. This file proves the earlier lower-bound
 contract only; the full exact classification and absence of further challenges are
 proved in the companion `QuadraticNearJohnsonExact.lean`.
 
-Paper statement: [Theorem 4.1, p. 28](../../../binary-field-counterexamples.pdf#page=28).
+Paper statement: [Theorem 4.1, p. 26](../../../binary-field-counterexamples.pdf#page=26).
 Public theorem: `BinaryFieldCounterexamples.quadratic_near_johnson`.
 **Verified proper-extension theorem.** The theorem below has a complete proof with
 no transitive admissions. The stronger individual bound and same-field companions

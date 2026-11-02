@@ -36,9 +36,8 @@ theorem nonzeroLinearMap_zeroFiber_card
   have hdim : Module.finrank F (Fin r → F) = r := by simp
   rw [hdim] at hr
   have hk : Module.finrank F (LinearMap.ker L) = r - 1 := by omega
-  have hc := Module.natCard_eq_pow_finrank (K := F) (V := LinearMap.ker L)
-  rw [hk] at hc
-  simp only [Nat.card_eq_fintype_card] at hc
+  have hc := Module.card_fintype (Module.finBasis F (LinearMap.ker L))
+  simp only [Fintype.card_fin, hk] at hc
   rw [← hc, ← Fintype.card_coe]
   apply Fintype.card_congr
   exact
@@ -83,9 +82,12 @@ theorem affineMap_collision_fiber_card_le
     simp [hempty]
   · have hsurj := LinearMap.surjective hL
     obtain ⟨x, hx⟩ := hsurj (g 0 - f 0)
-    have hfiber := AddMonoidHom.card_fiber_eq_of_mem_range L
-      (show g 0 - f 0 ∈ Set.range L from ⟨x, hx⟩)
-      (show 0 ∈ Set.range L from ⟨0, map_zero L⟩)
+    have hfiber : (Finset.univ.filter fun y ↦ L y = g 0 - f 0).card =
+        (Finset.univ.filter fun y ↦ L y = 0).card := by
+      apply Finset.card_equiv (Equiv.subRight x)
+      intro y
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and,
+        Equiv.subRight_apply, map_sub, hx, sub_eq_zero]
     have hker := nonzeroLinearMap_zeroFiber_card r L hL
     calc
       (Finset.univ.filter fun y ↦ f y = g y).card =

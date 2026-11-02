@@ -10,8 +10,8 @@ public import BinaryFieldCounterexamples.Constructions.AllRates.UnpaddedFamily
 /-!
 # Main theorem: Exact finite counts before additive-domain padding
 
-Paper statements: [Lemma 4.3, p. 31](../../../binary-field-counterexamples.pdf#page=31)
-and [Corollary 4.4, p. 32](../../../binary-field-counterexamples.pdf#page=32).
+Paper statements: [Lemma 4.3, p. 29](../../../binary-field-counterexamples.pdf#page=29)
+and [Corollary 4.4, p. 31](../../../binary-field-counterexamples.pdf#page=31).
 These results extract the unpadded construction in the section on every fixed
 rate. Let the supplied binary additive domain have
 size `N = 2^(m+s)`, where `2 ≤ s ≤ m`, and let the supplied extension have

@@ -16,7 +16,7 @@ public import BinaryFieldCounterexamples.Constructions.DenseAllRates.RateGap
 
 ## Manuscript statement and status
 
-Paper statement: [Corollary 5.24, p. 56](../../../binary-field-counterexamples.pdf#page=56).
+Paper statement: [Corollary 5.24, p. 50](../../../binary-field-counterexamples.pdf#page=50).
 Intended theorem name: `BinaryFieldCounterexamples.dense_all_rates`.
 **Proved.** The actual trace-form population, uniform affine restriction, balanced padding, and finite-extension pole construction establish the statement below.
 

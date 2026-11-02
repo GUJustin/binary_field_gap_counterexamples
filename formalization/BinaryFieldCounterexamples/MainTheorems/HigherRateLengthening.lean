@@ -9,7 +9,7 @@ public import BinaryFieldCounterexamples.Constructions.HigherRateLengthening.Asy
 /-!
 # Main theorem: higher rates on every dense binary domain
 
-Paper statement: [Corollary 5.16, p. 47](../../../binary-field-counterexamples.pdf#page=47),
+Paper statement: [Corollary 5.16, p. 45](../../../binary-field-counterexamples.pdf#page=45),
 “Higher rates on every dense binary domain”.
 Public theorem: `BinaryFieldCounterexamples.higher_rate_lengthening`.
 **Proved.** Fix a codimension `c` and a

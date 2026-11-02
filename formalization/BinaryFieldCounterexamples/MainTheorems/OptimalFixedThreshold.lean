@@ -8,7 +8,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.OptimalHyperplaneThr
 /-!
 # Main theorem: fixed-threshold counterexamples with exponent floor(b)+1
 
-Paper statement: Theorem 5.4, p. 38. The paper chooses the sufficient exponent
+Paper statement: Theorem 5.4, p. 36. The paper chooses the sufficient exponent
 `max(2, floor(b)+1)` so that the fixed-extension Gold corollary applies directly.
 The theorem below preserves the stronger proved choice `floor(b)+1`.
 For each proposed polynomial count exponent b>0, this exponent is determined before the

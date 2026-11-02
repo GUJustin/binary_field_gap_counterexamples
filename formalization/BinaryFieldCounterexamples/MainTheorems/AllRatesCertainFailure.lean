@@ -14,31 +14,39 @@ public import BinaryFieldCounterexamples.Constructions.AllRates.HighExtensionCla
 
 ## Manuscript statement and status
 
-Paper statement: [Theorem 4.5, p. 33](../../../binary-field-counterexamples.pdf#page=33).
+Paper statement: [Theorem 4.5, p. 31](../../../binary-field-counterexamples.pdf#page=31).
 Public theorem: `BinaryFieldCounterexamples.all_rates_certain_failure`.
-**Proved.** All four clauses below keep their original quantitative contracts,
-with one choice of the agreement fraction and counting constant.
+**Proved.** The probability, saturation, list and extension clauses use one
+agreement fraction and counting constant. The count and half-minimum forms
+printed in the theorem are stated by `all_rates_certain_failure_half_min` in
+`MainTheorems/AllRatesCertainFailureMin.lean`.
 
-Fix a real `0 < ρ < 1` and an integer `s ≥ 2`. There are constants
-`ρ < α_(ρ,s) < sqrt ρ` and `C_(ρ,s) > 0` such that, for every sufficiently
-large binary additive domain `D ⊆ F` with `N = |D|`, `q = |F|`, and
-`J = floor(ρ N)`, there is one pair with `CA_J(f,g) = J` and
+Fix a real `0 < ρ < 1` and an integer `s ≥ 2`. The paper uses constants
+`ρ < α < sqrt ρ` and `c > 0`, depending only on `ρ,s`. Lean writes `C = 1/c`.
+For every sufficiently large binary additive domain `D ⊆ F`, put
+`N = |D|`, `q = |F|`, `J = floor(ρ N)` and `T = ceil(α N)`.
+The paper's first pair has `agr_J(g) = CA_J(f,g) = J` and
 
-`|Bad_(ceil(α_(ρ,s) N))(f,g) \ {0}|/q
-  ≥ 1/(1 + C_(ρ,s) q/N^s) - 1/q`.
+`|Bad_T(f,g) \ {0}|/q ≥ 1/(1 + q/(c N^s)) - 1/q`.
 
+The declaration below proves common agreement and the probability bound;
+`all_rates_certain_failure_full` also supplies the stated agreement of `g`.
+Equivalently, the nonzero count is at least
+`q/(1 + q/(c N^s)) - 1 ≥ (1/2) min {q, c N^s} - 1`.
+In particular, `q ≥ N^s` gives `Ω_(ρ,s)(N^s)` challenges.
 The cutoff and constants are uniform over `D` and its containing field.
-For each fixed real `a ≥ 1`, choosing `s > 2 a` ensures that for every
-sufficiently large such domain with `q ≤ N^a` there is a pair with
-`CA_J(f,g) = J` and `Bad_(ceil(α_(ρ,s) N))(f,g) = F`, including zero.
-At message length `J + 1`, the construction also yields a received word whose
-decoding list has at least as many codewords at that threshold.
 
-If `D ⊆ B ⊊ F`, a separate pair at the same rate and threshold has
-`agr_J(f) = agr_J(g) = CA_J(f,g) = J` and nonzero exceptional count at least
-`|B|/(1 + C_(ρ,s) |B|/N^s) - 1`. If `[F:B] ≥ s + 1`, the original
-`q`-dependent lower bound can also be attained with both individual agreements
-equal to `J`. These are different field hypotheses and may use different pairs.
+For each fixed real `a ≥ 1`, if `s > 2 a` and `q ≤ N^a`, every sufficiently
+large such domain has a pair with `agr_J(g) = CA_J(f,g) = J` and
+`Bad_T(f,g) = F`, including zero. For the first two parts, the paragraph after
+Theorem 4.5 gives at least as many decoding-list codewords at message length
+`J + 1` and agreement `T` as exceptional challenges.
+
+If `D ⊆ B ⊊ F`, a separate pair has
+`agr_J(f) = agr_J(g) = CA_J(f,g) = J` and nonzero count at least
+`|B|/(1 + |B|/(c N^s)) - 1`. If `[F:B] ≥ s + 1`, a pair with these three
+agreements equal to `J` also attains the original `q`-dependent probability
+bound. These are different field hypotheses and may use different pairs.
 
 The threshold stays strictly between rate and Johnson asymptotically, but is
 not asserted to approach Johnson. Strict code degree is `< J`, or `< J + 1`

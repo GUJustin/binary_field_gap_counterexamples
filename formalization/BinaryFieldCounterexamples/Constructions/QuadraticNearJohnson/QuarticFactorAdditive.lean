@@ -107,9 +107,7 @@ theorem exists_subspacePolynomial_of_quartic_composition
     rw [hsplit.eq_prod_roots_of_monic hP,
       hWsplit.eq_prod_roots_of_monic (subspacePolynomial_monic W),hroots]
   refine ⟨W,hWD,?_,?_⟩
-  · convert heq using 1
-    congr 1
-    exact Subsingleton.elim _ _
+  · exact heq
   · rw [heq,subspacePolynomial_natDegree]
     simp only [←Nat.card_eq_fintype_card]
 end BinaryFieldCounterexamples

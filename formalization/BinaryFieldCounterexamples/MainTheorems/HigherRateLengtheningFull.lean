@@ -7,7 +7,7 @@ public import BinaryFieldCounterexamples.MainTheorems.HigherRateLengthening
 /-!
 # Main theorem companion: the complete higher-rate agreement contract
 
-This companion to [Corollary 5.16, p. 47](../../../binary-field-counterexamples.pdf#page=47)
+This companion to [Corollary 5.16, p. 45](../../../binary-field-counterexamples.pdf#page=45)
 assembles the two-sided agreement estimate and proves both final numerical
 clauses: the limiting agreement is below the Johnson square root, and the
 windows cover every rate in `[5/8,1)`. The construction uses the actual decoding

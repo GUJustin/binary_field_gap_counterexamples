@@ -13,7 +13,7 @@ public import BinaryFieldCounterexamples.Constructions.AllRates.HighExtensionCla
 /-!
 # Main theorem: Complete all-rate certain failure
 
-This proved companion assembles every clause of Theorem 4.5, p. 33, including
+This proved companion assembles every clause of Theorem 4.5, p. 31, including
 exact agreement of the second input in parts 1–2 and the closing decoding list
 for the actual first input. One dyadic exponent, agreement fraction, and positive
 counting constant work in all four field regimes. The exposed formula is

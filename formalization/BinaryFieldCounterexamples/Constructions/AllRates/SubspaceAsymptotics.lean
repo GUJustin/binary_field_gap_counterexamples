@@ -12,9 +12,9 @@ import Mathlib.Tactic.FieldSimp
 /-!
 # The codimension-s population is Theta_s(N^s)
 
-The opening paragraph of manuscript Section 4.2
-(`sections/constructions/all-rates-certain-failure.tex:7`) states that a binary
-domain of size `N` has `Theta_s(N^s)` subspaces of codimension `s`.
+Section 3.1, paragraph *Gaussian binomial coefficients*, and Section 4.2,
+proof of Theorem 4.5, paragraph *The seed pair*, give the bounds implying
+`Theta_s(N^s)` subspaces of codimension `s` in a binary domain of size `N`.
 The exact count below concerns actual subspaces of the supplied domain, represented
 by submodules of its carrier. Its explicit bounds have constants
 `2^(-s*s)` and `4*2^(-s*s)`, independent of the domain and its dimension.
@@ -72,7 +72,8 @@ theorem binary_codimension_subspaces_count_and_bounds
   push_cast
   exact gaussianBinomial_codimension_power_bounds d s hsd
 
-/-- The literal `Theta_s(N^s)` statement from the opening of Section 4.2,
+/-- The `Theta_s(N^s)` consequence of Section 3.1
+and Section 4.2, proof of Theorem 4.5,
 for `N=2^d` as `d` grows with fixed `s`. The Gaussian coefficient has already
 been identified with the actual subspace count by the preceding theorem. -/
 theorem gaussianBinomial_codimension_isTheta (s : ℕ) :

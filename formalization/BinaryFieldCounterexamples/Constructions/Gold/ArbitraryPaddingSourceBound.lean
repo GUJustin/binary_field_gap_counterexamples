@@ -10,7 +10,7 @@ public import BinaryFieldCounterexamples.Agreement.AffineTransport
 /-!
 # Arbitrary polynomial padding in characteristic two
 
-The binary padding clause of Lemma 3.13 (p. 24) permits every multiplier,
+The binary padding clause of Lemma 3.13 (p. 23) permits every multiplier,
 including constant and odd-degree polynomials. The general bound uses the
 natural floor `(3*K+w-1)/2`; the older constant-derivative specialization
 keeps its existing bound independently.

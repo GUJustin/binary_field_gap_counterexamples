@@ -11,9 +11,8 @@ public import BinaryFieldCounterexamples.Constructions.ExactHalfAgreement.Source
 /-!
 # Binary additivity and affine-flat squares
 
-This module proves the literal polynomial-additivity claim in the locator prose
-of Section 3 (`sections/preliminaries.tex`, lines 235–241) and instantiates it
-for actual subspace locators. It also supplies the nonzero constant derivative
+This module proves the literal polynomial-additivity claim in Section 3.2,
+the locator prose before Lemma 3.9, and instantiates it for actual subspace locators. It also supplies the nonzero constant derivative
 and square-root degree clauses for actual affine-flat locators.
 -/
 

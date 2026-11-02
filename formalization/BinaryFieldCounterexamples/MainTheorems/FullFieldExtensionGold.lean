@@ -8,7 +8,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.FullFieldExtensionAs
 /-!
 # Main theorem: Fixed-extension Gold probability on the full field
 
-Paper statement: [Corollary 5.3, p. 38](../../../binary-field-counterexamples.pdf#page=38),
+Paper statement: [Corollary 5.3, p. 36](../../../binary-field-counterexamples.pdf#page=36),
 the full-field clause of the fixed-extension Gold corollary. Fix an extension
 exponent `e≥2` and an error `ε>0`. After a cutoff
 depending only on these two parameters, every even-dimensional binary field

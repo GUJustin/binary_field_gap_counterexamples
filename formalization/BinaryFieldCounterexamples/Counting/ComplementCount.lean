@@ -51,7 +51,9 @@ theorem complements_natCard [Fintype k] [FiniteDimensional k V]
     Nat.card {S : Submodule k V // IsCompl P S} =
       (Fintype.card k)^(Module.finrank k C*Module.finrank k P) := by
   rw [Nat.card_congr (complementsEquivLinearMaps P C h),
-    Module.natCard_eq_pow_finrank (K:=k),Module.finrank_linearMap,Nat.card_eq_fintype_card]
+    ← Nat.card_congr ((Module.finBasis k C).constr k).toEquiv, Nat.card_fun,
+    Nat.card_congr (Module.finBasis k P).equivFun.toEquiv, Nat.card_fun]
+  simp only [Nat.card_eq_fintype_card, Fintype.card_fin, ← pow_mul, mul_comm]
 /-- Every subspace has the expected exact number of linear complements. -/
 theorem complements_natCard_eq_pow [Fintype k] [FiniteDimensional k V]
     (P : Submodule k V) :

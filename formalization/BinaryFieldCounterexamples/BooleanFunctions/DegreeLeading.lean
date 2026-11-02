@@ -36,7 +36,7 @@ theorem totalDegree_sub_homogeneousComponent_lt (p : MvPolynomial σ (ZMod 2))
   by_contra hn
   have hk' : k ≤ d.sum (fun _ e => e) := Nat.le_of_not_gt hn
   have hz : (p - homogeneousComponent k p).coeff d = 0 := by
-    rw [coeff_sub, coeff_homogeneousComponent]
+    rw [AddMonoidAlgebra.coeff_sub, Finsupp.sub_apply, coeff_homogeneousComponent]
     change p.coeff d - (if d.sum (fun _ e => e) = k then p.coeff d else 0) = 0
     by_cases he : d.sum (fun _ e => e) = k
     · simp [he]

@@ -12,7 +12,7 @@ public import Mathlib.Data.Rat.Floor
 /-!
 # Concrete semantics for the paper's main theorem statements
 
-Definitions 3.1–3.5 in [Section 3, pp. 18–19](../../binary-field-counterexamples.pdf#page=18)
+Definitions 3.1–3.5 in [Section 3, pp. 17–18](../../binary-field-counterexamples.pdf#page=17)
 fix the paper's code, agreement, challenge, list, and gap quantities. These quantities count coordinates, use polynomial degree strictly
 below the message bound, and maximize over actual polynomials. The predicates below
 express upper bounds and attained lower bounds directly, avoiding a separate choice

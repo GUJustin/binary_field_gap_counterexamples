@@ -9,7 +9,7 @@ public import BinaryFieldCounterexamples.Counting.CollisionSimplifiedBound
 /-!
 # Unions of unequal flats give exceptional challenges
 
-Lemma 6.1 (p. 58), `lem:flats-to-challenges`, in Section 6.1 of the manuscript.
+Lemma 6.1 (p. 51), `lem:flats-to-challenges`, in Section 6.1 of the manuscript.
 A family of distinct nonempty supports of size `T₀`, disjoint from a reserved
 set `W`, is converted to one fixed pair at message length `T₀-w+|W|` and
 agreement threshold `T₀+|W|`. Flats may have different sizes within and between

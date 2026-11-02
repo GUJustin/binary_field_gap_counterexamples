@@ -12,7 +12,7 @@ concrete parameters.
 ## Lean formalization
 
 The [Lean project](formalization/README.md) proves every numbered theorem,
-proposition, corollary and lemma in the paper. Its 3,135 public declarations
+proposition, corollary and lemma in the paper. Its 3,138 public declarations
 are proved without `sorry`, and their axiom reports contain only Lean's
 standard `propext`, `Classical.choice` and `Quot.sound`. The
 [coverage table](formalization/README.md#coverage) maps each paper statement to
@@ -37,9 +37,14 @@ python3 scripts/check_lean_contract_axioms.py
 
 ## Concrete parameters
 
-Two scripts recompute the finite parameters printed in the paper with exact
-arithmetic, independently of the Lean proofs. They need only Python 3.10 or
-newer:
+`scripts/verify_main_parameters.py` independently recomputes the Binius64
+parameters at rates 1/4 and 1/2 (including the 29.889 and 29.877 probability
+exponents), and checks half-rate transfer and Gold hyperplane identities.
+`scripts/verify_fixed_extension.py` checks fixed-extension instances and the
+Binius64 padding constant. Counts and identities use exact rational and integer
+arithmetic; some decimal comparisons use floating point. The other printed
+numbers, including 28.585, 57.17, 90.585, Longfellow and the decision-tree bounds,
+are checked in Lean. The scripts need only Python 3.10 or newer:
 
 ```sh
 python3 scripts/verify_main_parameters.py

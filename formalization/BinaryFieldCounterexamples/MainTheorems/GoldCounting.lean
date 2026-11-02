@@ -6,14 +6,16 @@ module
 
 public import BinaryFieldCounterexamples.Constructions.Gold.MomentPopulation
 public import BinaryFieldCounterexamples.Constructions.Gold.BoundedAssembly
+public import BinaryFieldCounterexamples.Counting.CollisionSimplifiedBound
 
 /-!
 # Main theorem: The Gold counting bound near Johnson
 
 ## Manuscript statement and status
 
-Paper statement: [Theorem 5.1, p. 36](../../../binary-field-counterexamples.pdf#page=36).
+Paper statement: [Theorem 5.1, p. 34](../../../binary-field-counterexamples.pdf#page=34).
 Public theorem: `BinaryFieldCounterexamples.gold_counting_sharp`.
+Public theorem: `BinaryFieldCounterexamples.gold_counting_half_min`.
 The original `gold_counting` remains as a weaker compatibility corollary.
 **Proved.** Both concrete conclusions use the shared polynomial agreement
 semantics and follow from the actual moment kernel, finite Fourier population
@@ -36,7 +38,9 @@ polynomials agreeing on at least `T` coordinates. For every finite extension
 * `agr_(N/4)(f) ≤ 3 N/8 - 1`; and
 * at least the maximum of `L - floor(δ choose(L,2)/(q-N))` and
   `ceil(L (q-N)/(q-N+δ (L-1)))` distinct **nonzero** exceptional challenges
-  at agreement `T`. Both bounds hold for the same pair.
+  at agreement `T`. Both bounds hold for the same pair;
+* `gold_counting_half_min` adds at least `½ min {L,(q-N)/δ}` nonzero
+  exceptional challenges, for that same pair and both witness dimensions.
 
 The pair witnesses have degree at most `T/2 - 1`, hence strictly below `N/4`.
 All conclusions also hold on each affine translate of `D`. Decoding lists
@@ -60,7 +64,7 @@ it by a convenient full field would lose the prescribed-domain conclusion.
 /-!
 ## Proof assembly: 2. Build distinct locators with common high coefficients
 
-Use [Lemma 5.12, p. 43](../../../binary-field-counterexamples.pdf#page=43) to obtain many roots and common high coefficients.
+Use [Lemma 5.12, p. 41](../../../binary-field-counterexamples.pdf#page=41) to obtain many roots and common high coefficients.
 Prove degree and coefficient recovery before deducing distinct codewords in the decoding list.
 Preserve the stronger witness bound `T/2 - 1`, needed by later padding.
 Canonical representatives over `B` must remain the specified polynomials when
@@ -70,12 +74,12 @@ evaluated at exterior poles; reduction modulo `X^|B| - X` is not harmless there.
 /-!
 ## Proof assembly: 3. Pool collisions and apply Lemma 3.13 to the inputs
 
-Apply the pole reduction and both simultaneous collision bounds of [Lemma 3.19, p. 27](../../../binary-field-counterexamples.pdf#page=27)
+Apply the pole reduction and both simultaneous collision bounds of [Lemma 3.19, p. 26](../../../binary-field-counterexamples.pdf#page=26)
 over the `q - N` exterior poles. Convert the image cardinality into distinct
 challenges. The bound on the first input of Lemma 3.13 is strictly below `T`, so none
 of these challenges is zero and the full image count is kept.
 Use the second input's agreement plus interpolation for the exact common agreement,
-and [Lemma 3.13, p. 24](../../../binary-field-counterexamples.pdf#page=24) for the first-input bound. Finally transport the
+and [Lemma 3.13, p. 23](../../../binary-field-counterexamples.pdf#page=23) for the first-input bound. Finally transport the
 entire construction along translation, including degrees and distinct challenges.
 -/
 
@@ -196,5 +200,84 @@ theorem gold_counting
   exact ⟨f,g,hcommon,hg,hf,
     (Nat.sub_le _ _).trans ((le_max_right _ _).trans hbad),
     (Nat.sub_le _ _).trans ((le_max_right _ _).trans hstrong)⟩
+
+/-- Theorem 5.1 with its half-minimum consequence at both strict witness
+bounds. All agreement equalities and exact `Z` bounds use the same pair. -/
+theorem gold_counting_half_min
+    {B F : Type*} [Field B] [Fintype B] [CharP B 2]
+    [Field F] [Fintype F] [CharP F 2] (φ : B →+* F)
+    (D : AddSubgroup B) (a : B) (m d t : ℕ)
+    (hB : Fintype.card B = 2 ^ m) (hD : (additiveDomain D).card = 2 ^ d)
+    (ht : 2 ≤ t) (htd : t ≤ d / 2)
+    (hΔ : 1 ≤ m - t * (m - d + if Even d then 1 else 0))
+    (hq : 2 ^ d < Fintype.card F) :
+    let N : ℕ := 2 ^ d
+    let Δ : ℕ := m - t * (m - d + if Even d then 1 else 0)
+    let L : ℕ := 2 ^ (2 * t) * (2 ^ Δ - 1) * gaussianBinomial 4 (d / 2) t
+    let T : ℕ := N / 2 - N / 2 ^ (t + 1)
+    let δ : ℕ := N / 2 ^ (2 * t)
+    let E := mappedDomain φ (affineDomain (additiveDomain D) a)
+    let q : ℕ := Fintype.card F
+    let Z : ℕ := max (L-(δ*L.choose 2)/(q-N)) ⌈(L : ℚ) * ((q : ℚ) - (N : ℚ)) /
+      ((q : ℚ) - (N : ℚ) + (δ : ℚ) * ((L : ℚ) - 1))⌉₊
+    ∃ f g : E → F,
+      commonAgreementEQ E (N / 4) f g (N / 4) ∧
+      agreementEQ E (N / 4) g (N / 4) ∧
+      agreementLE E (N / 4) f (3 * N / 8 - 1) ∧
+      Z ≤ (nonzeroBadChallenges E (N / 4) f g T).card ∧
+      Z ≤ (nonzeroBadChallenges E (T / 2) f g T).card ∧
+      (1 / 2 : ℝ) * min (L : ℝ) (((q : ℝ) - N) / δ) ≤
+        (nonzeroBadChallenges E (N / 4) f g T).card ∧
+      (1 / 2 : ℝ) * min (L : ℝ) (((q : ℝ) - N) / δ) ≤
+        (nonzeroBadChallenges E (T / 2) f g T).card := by
+  classical
+  let N : ℕ := 2 ^ d
+  let Δ : ℕ := m - t * (m - d + if Even d then 1 else 0)
+  let L : ℕ := 2 ^ (2 * t) * (2 ^ Δ - 1) * gaussianBinomial 4 (d / 2) t
+  let T : ℕ := N / 2 - N / 2 ^ (t + 1)
+  let δ : ℕ := N / 2 ^ (2 * t)
+  let q : ℕ := Fintype.card F
+  let Z : ℕ := max (L-(δ*L.choose 2)/(q-N)) ⌈(L : ℚ) * ((q : ℚ) - (N : ℚ)) /
+    ((q : ℚ) - (N : ℚ) + (δ : ℚ) * ((L : ℚ) - 1))⌉₊
+
+  -- Retain the sharp theorem's single pair and both exact collision bounds.
+
+  obtain ⟨f, g, hcommon, hg, hf, hbad, hstrong⟩ :=
+    gold_counting_sharp φ D a m d t hB hD ht htd hΔ hq
+  have hx : (0 : ℝ) < q - N := by
+    have : (N : ℝ) < q := by exact_mod_cast hq
+    linarith
+  have hδ : (0 : ℝ) < δ := by
+    have hdt : 2 * t ≤ d := by omega
+    have hpow : 2 ^ (2 * t) ≤ N := Nat.pow_le_pow_right (by decide) hdt
+    exact_mod_cast (Nat.div_pos hpow (by positivity) : 0 < δ)
+  have hhalf : (1 / 2 : ℝ) * min (L : ℝ) (((q : ℝ) - N) / δ) ≤ Z := by
+    by_cases hL : L = 0
+    · simp only [hL, Nat.cast_zero, min_eq_left (by positivity :
+        (0 : ℝ) ≤ (q - N) / δ), mul_zero]
+      positivity
+    · have hL1 : (1 : ℝ) ≤ L := by exact_mod_cast (Nat.one_le_iff_ne_zero.mpr hL)
+      have hLpos : (0 : ℝ) < L := by linarith
+      have hden : (0 : ℝ) < (q - N) + δ * ((L : ℝ) - 1) := by positivity
+
+      -- Remove the ceiling, then enlarge its denominator from δ(L-1) to δL.
+
+      have hceil : (L : ℚ) * ((q : ℚ) - N) /
+          ((q : ℚ) - N + (δ : ℚ) * ((L : ℚ) - 1)) ≤ Z :=
+        (Nat.le_ceil _).trans (Nat.cast_le.mpr (le_max_right _ _))
+      have hcast := (Rat.cast_le (K := ℝ)).mpr hceil
+      simp only [Rat.cast_natCast, Rat.cast_div, Rat.cast_mul, Rat.cast_sub,
+        Rat.cast_add, Rat.cast_one] at hcast
+      have hmono : (L : ℝ) * (q - N) / ((q - N) + δ * (L : ℝ)) ≤
+          (L : ℝ) * (q - N) / ((q - N) + δ * ((L : ℝ) - 1)) := by
+        apply div_le_div_of_nonneg_left (by positivity) hden
+        nlinarith
+      have heq : (L : ℝ) / (1 + L / (((q : ℝ) - N) / δ)) =
+          L * (q - N) / ((q - N) + δ * (L : ℝ)) := by
+        field_simp
+      exact (half_min_le_div_one_add_div L ((q - N) / δ) hLpos (by positivity)).trans
+        (heq.le.trans (hmono.trans hcast))
+  exact ⟨f, g, hcommon, hg, hf, hbad, hstrong,
+    hhalf.trans (Nat.cast_le.mpr hbad), hhalf.trans (Nat.cast_le.mpr hstrong)⟩
 
 end BinaryFieldCounterexamples

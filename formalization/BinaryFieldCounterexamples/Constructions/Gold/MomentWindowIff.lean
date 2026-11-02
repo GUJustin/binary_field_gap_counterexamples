@@ -8,8 +8,8 @@ public import BinaryFieldCounterexamples.Constructions.Gold.Compression
 /-!
 # Moment equations and the coefficients of the Gold derivative
 
-This module completes the converses in Lemma 5.8, p. 41 of the
-[paper](../../../../binary-field-counterexamples.pdf#page=41)
+This module completes the converses in Lemma 5.8, p. 39 of the
+[paper](../../../../binary-field-counterexamples.pdf#page=39)
 (`lem:gold-window`, “Moment equations and the coefficients of J”).
 The low coefficients recover the moments by the unit-diagonal expansion.
 At the high end, the weighted recurrence propagates coefficient vanishing
@@ -189,7 +189,7 @@ theorem tensorLinearPart_frobeniusRoot_eq_window (D : AddSubgroup B) [Fintype D]
   simp only [coeff_monomial, he]
   split_ifs <;> simp
 
-/-- **Lemma 5.8 (Moment equations and the coefficients of `J`), p. 41.**
+/-- **Lemma 5.8 (Moment equations and the coefficients of `J`), p. 39.**
 For a binary additive domain of size `N = 2^d` and `2 ≤ t ≤ d/2`, the
 initial moments vanish iff the low coefficients vanish iff the high coefficients
 vanish; the latter is exactly `deg J ≤ N/2^t`. Also `J₀ = 0`.

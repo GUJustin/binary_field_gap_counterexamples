@@ -10,9 +10,9 @@ public import Mathlib.Data.Finsupp.Order
 # Algebraic normal forms of Boolean functions
 
 This is the reduced multilinear representative used in Section 6.2 after
-[Definition 6.2, p. 59](../../../binary-field-counterexamples.pdf#page=59)
+[Definition 6.2, p. 52](../../../binary-field-counterexamples.pdf#page=52)
 (translation periods and essential coordinates). Boolean functions and balance
-are defined in Definition 3.14, p. 25. Evaluation identifies reduced polynomials
+are defined in Definition 3.14, p. 24. Evaluation identifies reduced polynomials
 over `ZMod 2` with all Boolean functions. Explicitly capping every positive
 monomial exponent at one preserves evaluation and never increases total degree.
 The latter fact is the foundation for the affine invariance and quotient clauses

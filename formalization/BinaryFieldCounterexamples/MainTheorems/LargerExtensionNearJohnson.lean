@@ -10,6 +10,8 @@ public import BinaryFieldCounterexamples.Constructions.Gold.DenseAsymptoticTheor
 /-!
 # Main theorem companion: Corollary 5.2 in every larger extension
 
+The larger-extension assertion is not printed in the current paper.
+
 The quasipolynomial challenge-field choice and all original asymptotic clauses
 are retained. Every field containing the original base field and at least
 as large as that chosen field supplies a pair with the same superpolynomial
@@ -22,8 +24,8 @@ open Gold
 attribute [local instance] Classical.decEq Classical.propDecidable
 set_option maxHeartbeats 1200000
 
-/-- Corollary 5.2 and Section 1's larger-extension clause, assembled with the
-original two-sided deficit, decoding list, count, probability and chosen-field
+/-- A larger-extension strengthening of Corollary 5.2, not printed in the
+current paper, assembled with the two-sided deficit, decoding list, count, probability and chosen-field
 bounds. Every at-least-as-large containing field has the same count guarantee. -/
 theorem superpolynomial_near_johnson_every_larger_extension (c : ℕ) :
     let θ : ℝ := min (1 / 4) (1 / (c + 1))

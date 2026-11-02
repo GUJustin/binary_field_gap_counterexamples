@@ -10,8 +10,8 @@ public import BinaryFieldCounterexamples.Constructions.Gold.HalfRateBiniusCertif
 /-!
 # Main theorem: the half-rate Binius64 numerical example
 
-The Binius64 paragraph in Section 7.1 specializes
-[Corollary 5.15, p. 46](../../../binary-field-counterexamples.pdf#page=46)
+The Binius64 paragraph in Section 5.7 specializes
+[Corollary 5.15, p. 44](../../../binary-field-counterexamples.pdf#page=44)
 with `m = 32`, `d = 27`, `t = 6`, padding dimension `25`, and challenge
 field size `2^128`. `halfRateBinius64` proves every exact fraction and
 conservative decimal bound in that paragraph.

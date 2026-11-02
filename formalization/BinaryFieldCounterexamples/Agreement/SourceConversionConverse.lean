@@ -7,7 +7,7 @@ public import BinaryFieldCounterexamples.Agreement.SourceConversion
 /-!
 # Exact exceptional set under the proper-extension conversion of Lemma 3.12
 
-This completes the converse in Lemma 3.12 (p. 23). Above the old common
+This completes the converse in Lemma 3.12 (p. 22). Above the old common
 agreement, every exceptional converted challenge comes from the fractional
 linear image of an old challenge, except possibly `-1`. That last challenge
 is exceptional exactly when the old second input meets the threshold.

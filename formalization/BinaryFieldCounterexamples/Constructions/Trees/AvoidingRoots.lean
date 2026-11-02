@@ -42,13 +42,15 @@ theorem avoidingRoots_card [Fintype V] (W : Submodule (ZMod 2) V) :
   let : Fintype (Module.Dual (ZMod 2) V) := Fintype.ofInjective
     (fun f : Module.Dual (ZMod 2) V => (f : V → ZMod 2)) DFunLike.coe_injective
   let : Fintype W.dualAnnihilator := Fintype.ofFinite _
+  have : Module.Free (ZMod 2) W.dualAnnihilator :=
+    Module.Free.of_divisionRing (ZMod 2) W.dualAnnihilator
   have hd : Module.finrank (ZMod 2) W.dualAnnihilator=
       Module.finrank (ZMod 2) V-Module.finrank (ZMod 2) W := by
     have h := Subspace.finrank_add_finrank_dualAnnihilator_eq W
     omega
   change Nat.card {z : W.dualAnnihilator // z≠0}=_
   rw [Nat.card_eq_fintype_card,Fintype.card_subtype_compl,Fintype.card_subtype_eq,
-    Module.card_eq_pow_finrank (K := ZMod 2),hd]
+    Module.card_fintype (Module.finBasis (ZMod 2) W.dualAnnihilator), Fintype.card_fin, hd]
   norm_num
 /-- A nonzero binary functional is onto the binary field. -/
 theorem binaryFunctional_surjective (z : Module.Dual (ZMod 2) V) (hz : z≠0) : Function.Surjective z := by

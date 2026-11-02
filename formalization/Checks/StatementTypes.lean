@@ -32,7 +32,7 @@ endpoints are separately listed in Checks/Axioms.lean.
 #print axioms BinaryFieldCounterexamples.mappedDomain
 #print axioms BinaryFieldCounterexamples.affineDomain
 
-/-! Public-import signatures synchronized with the strengthened Theorem 6.5.
+/-! Public-import signatures synchronized with the strengthened Theorem 6.10.
 The axiom inventory already contains these declarations; these checks also
 print their current types through the reader-facing main-theorem import. -/
 #check BinaryFieldCounterexamples.half_rate_trees_of_population

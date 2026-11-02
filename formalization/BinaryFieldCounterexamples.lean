@@ -5,6 +5,7 @@ Released under Apache 2.0 license.
 module
 
 public import BinaryFieldCounterexamples.MainTheorems.AllRatesCertainFailureFull
+public import BinaryFieldCounterexamples.MainTheorems.AllRatesCertainFailureMin
 public import BinaryFieldCounterexamples.MainTheorems.AllRatesPolynomialCount
 public import BinaryFieldCounterexamples.MainTheorems.ExactHalfAgreementProbability
 public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonFull

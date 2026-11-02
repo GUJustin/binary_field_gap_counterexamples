@@ -18,11 +18,11 @@ namespace BinaryFieldCounterexamples.Longfellow
 attribute [local instance] Classical.propDecidable Classical.decEq
 variable {B : Type*} [Field B] [Fintype B] [CharP B 2] [Algebra (ZMod 2) B]
 
-/-- Section 5.8's four encoded circuit lengths, as used in Table 6. -/
+/-- Section 5.8's four encoded circuit lengths, as used in Table 4. -/
 def configuredLengths : Finset ℕ := {4151,4265,4307,4415}
 
 /-- Section 5.8: each configured interval includes the non-affineness witness
-and the central affine block, and its `(N,K)` pair is exactly a Table 6 pair. -/
+and the central affine block, and its `(N,K)` pair is exactly a Table 4 pair. -/
 theorem configured_length_bounds (e : ℕ) (he : e ∈ configuredLengths) :
     e < 2^16 ∧ 1≤(e+1)/9 ∧ 2*((e+1)/9)≤e ∧
     2*((e+1)/9)-1≤1024 ∧ 4096<e ∧ e≤7168 ∧

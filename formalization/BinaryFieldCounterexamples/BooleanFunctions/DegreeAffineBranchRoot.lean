@@ -8,7 +8,7 @@ public import BinaryFieldCounterexamples.BooleanFunctions.DegreeBranchCoordinate
 /-!
 # Affine coordinates in the top-degree root argument
 
-Lemma 6.5 (Section 6.2, p. 61) allows translated child coordinates. The selector
+Lemma 6.5 (Section 6.2, p. 54) allows translated child coordinates. The selector
 is still a linear functional, so the translation has zero selector component.
 Absorbing its other components into the children reduces the affine case to
 the linear coordinate argument without changing either child's degree.

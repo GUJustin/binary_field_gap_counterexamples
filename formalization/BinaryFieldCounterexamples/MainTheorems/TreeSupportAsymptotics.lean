@@ -7,7 +7,7 @@ public import BinaryFieldCounterexamples.Counting.TreeAsymptotics
 /-!
 # Main theorem companion: fixed-height support-count asymptotics
 
-The numerical assertion in Theorem 6.10, p. 63 is proved for the original exact
+The numerical assertion in Theorem 6.10, p. 56 is proved for the original exact
 support recursion. For each fixed height `h≥3`, positive constants and a dimension
 cutoff are chosen before the growing dimension; the exponent is `2^h-h-1`.
 This numerical assertion is independent of the finite-field decision-tree

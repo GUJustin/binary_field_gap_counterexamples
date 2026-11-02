@@ -53,7 +53,7 @@ theorem prose_gaussian_logarithm_error (q a b : ℕ) (hq : 2 ≤ q) (hb : b ≤ 
   constructor <;> linarith
 
 
-/-- Section 3.1, line 150: each individual factor of the Gaussian product is
+/-- Section 3.1, paragraph *Gaussian binomial coefficients*, item *Size*: each individual factor of the Gaussian product is
 at least `q^(a-b)` when its index lies below the subspace dimension. -/
 theorem prose_gaussian_product_factor_lower (q a b i : ℕ)
     (hq : 2 ≤ q) (hb : b ≤ a) (hi : i < b) :

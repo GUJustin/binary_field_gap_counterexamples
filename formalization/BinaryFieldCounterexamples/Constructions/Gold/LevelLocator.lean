@@ -60,8 +60,8 @@ theorem goldLevelLocator_eq_scaled_quotient (D : AddSubgroup B) [Fintype D]
       _ = _ := by rw [hroots]; rfl
   change goldLevelLocator D P=C H.leadingCoeff*Q
   rw [he,← mul_assoc,← C_mul,hc,C_1,one_mul]
-/-- Lemma 5.12, proof line 536, and Section 5.3's announced constant-derivative
-form: the actual level-set locator is `lc(H)(C^2+lambda_0 X)` for `C=P+R`,
+/-- Section 5.3, proof of Lemma 5.12, paragraph *The polynomial P*:
+the actual level-set locator is `lc(H)(C^2+lambda_0 X)` for `C=P+R`,
 where `R` is the full manuscript square root. -/
 theorem repairedLocator_levelLocator_eq [Algebra (ZMod 2) B]
     (D : AddSubgroup B) [Fintype D]

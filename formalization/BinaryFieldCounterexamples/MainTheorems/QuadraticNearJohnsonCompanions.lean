@@ -26,7 +26,7 @@ the same remainder construction attains it.
 /-!
 ## Companion main result: every containing field
 
-For [Corollary 4.2, p. 30](../../../binary-field-counterexamples.pdf#page=30), let `D ⊆ F` be any binary additive domain with
+For [Corollary 4.2, p. 29](../../../binary-field-counterexamples.pdf#page=29), let `D ⊆ F` be any binary additive domain with
 `N = 16 K`, `K ≥ 2` a power of two, and `F` finite of size `q`. Set
 `B₀ = (N - 1)(N - 2)/6`. There exists `θ ∈ F` such that the unshifted pair
 `f₀ = X^(8 K - 1) + θ X^(4 K - 1)`, `g = X^(2 K - 1)` has

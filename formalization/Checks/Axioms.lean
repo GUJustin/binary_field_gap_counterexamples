@@ -1300,7 +1300,7 @@ import BinaryFieldCounterexamples
 #print axioms BinaryFieldCounterexamples.Trees.template_stabilizer_zero_image
 #print axioms BinaryFieldCounterexamples.Trees.template_zero
 #print axioms BinaryFieldCounterexamples.Trees.template_origin_stabilizer_card
--- Theorem 6.5: includes agr(g) = K and agr(f) ≤ K + w - 1.
+-- Theorem 6.10: includes agr(g) = K and agr(f) ≤ K + w - 1.
 #print axioms BinaryFieldCounterexamples.half_rate_decision_trees
 
 #print axioms BinaryFieldCounterexamples.half_rate_decision_trees_probability
@@ -2485,6 +2485,7 @@ import BinaryFieldCounterexamples
 #print axioms BinaryFieldCounterexamples.spanningSubspaces_natCard
 #print axioms BinaryFieldCounterexamples.gold_full_field_fixed_extension_probability
 #print axioms BinaryFieldCounterexamples.gold_counting_sharp
+#print axioms BinaryFieldCounterexamples.gold_counting_half_min
 #print axioms BinaryFieldCounterexamples.gold_half_rate_sharp
 #print axioms BinaryFieldCounterexamples.native128Example_sharp
 #print axioms BinaryFieldCounterexamples.quadratic_forms_near_johnson_sharp
@@ -3025,6 +3026,7 @@ import BinaryFieldCounterexamples
 #print axioms BinaryFieldCounterexamples.half_or_field_min_le_second_moment_of_orderedField
 #print axioms BinaryFieldCounterexamples.half_or_field_min_le_second_moment
 #print axioms BinaryFieldCounterexamples.half_or_field_min_le_of_second_moment
+#print axioms BinaryFieldCounterexamples.half_min_le_div_one_add_div
 #print axioms BinaryFieldCounterexamples.half_or_field_min_le_collision_bound
 #print axioms BinaryFieldCounterexamples.half_or_field_min_real_le_of_second_moment
 #print axioms BinaryFieldCounterexamples.two_mul_le_of_binary_powers_lt
@@ -3414,6 +3416,9 @@ import BinaryFieldCounterexamples
 
 -- MainTheorems/AllRatesCertainFailureFull
 #print axioms BinaryFieldCounterexamples.all_rates_certain_failure_full
+
+-- MainTheorems/AllRatesCertainFailureMin
+#print axioms BinaryFieldCounterexamples.all_rates_certain_failure_half_min
 
 -- MainTheorems/AllRatesPolynomialCount
 #print axioms BinaryFieldCounterexamples.all_rates_certain_failure_polynomial_count

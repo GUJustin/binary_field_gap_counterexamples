@@ -13,7 +13,7 @@ import Mathlib.Tactic.Positivity
 # Main theorem specializations: concrete LeanVM and Flock tree bounds
 
 Paper correspondence: Section 6.4, “Concrete bounds for the parameters of
-LeanVM and Flock”, following [Theorem 6.10, p. 63](../../../binary-field-counterexamples.pdf#page=63).
+LeanVM and Flock”, following [Theorem 6.10, p. 56](../../../binary-field-counterexamples.pdf#page=56).
 All declarations below are proved. They quantify over every binary additive
 domain of length `2^22` in the indicated challenge field, as the manuscript
 requires. The words take values in that challenge field.

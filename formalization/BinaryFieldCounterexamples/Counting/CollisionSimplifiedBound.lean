@@ -11,7 +11,7 @@ public import Mathlib.Data.Rat.Cast.Lemmas
 /-!
 # The simplified flats-to-challenges collision bound
 
-Step 4 of Lemma 6.1 (Unions of flats give exceptional challenges), p. 59,
+Step 4 of Lemma 6.1 (Unions of flats give exceptional challenges), p. 51,
 of the paper proves that an energy budget `F ≤ N M² / 8` gives
 `Z(M,F) ≥ min {M/2, q/N}`. The second-moment term alone gives this bound.
 The numerical result below needs only `q ≥ 2N`; powers of two with `q > N`
@@ -188,5 +188,21 @@ theorem half_or_field_min_le_collision_bound_binary_real
   simpa only [Nat.cast_pow, Nat.cast_ofNat] using
     half_or_field_min_le_collision_bound_real (2 ^ d) M (2 ^ r) F
       (by positivity) hM (two_mul_le_of_binary_powers_lt d r hq) hF0 hF'
+
+/-- Half the smaller positive scale is bounded by their harmonic expression.
+This is the common numerical simplification in Theorems 4.5 and 5.1. -/
+theorem half_min_le_div_one_add_div (x y : ℝ) (hx : 0 < x) (hy : 0 < y) :
+    (1 / 2 : ℝ) * min x y ≤ x / (1 + x / y) := by
+  have hden : 0 < x + y := by positivity
+  have heq : x / (1 + x / y) = x * y / (x + y) := by
+    field_simp
+    ring
+  rw [heq]
+  apply (le_div_iff₀ hden).mpr
+  rcases le_total x y with h | h
+  · rw [min_eq_left h]
+    nlinarith [mul_nonneg hx.le (sub_nonneg.mpr h)]
+  · rw [min_eq_right h]
+    nlinarith [mul_nonneg hy.le (sub_nonneg.mpr h)]
 
 end BinaryFieldCounterexamples

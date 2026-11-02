@@ -10,7 +10,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.RetentionLimit
 /-!
 # Dense half-rate Gold families
 
-The consequently clause of Corollary 5.15 (p. 46) is assembled here
+The consequently clause of Corollary 5.15 (p. 44) is assembled here
 for the paper's actual padded received pair, rather than the quarter-rate pair.
 The extension field is a rounded power of the base field. Exact retention loses
 only a constant factor, so the quadratic logarithmic count exponent persists.

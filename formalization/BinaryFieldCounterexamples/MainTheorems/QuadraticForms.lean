@@ -21,7 +21,7 @@ public import BinaryFieldCounterexamples.Counting.QuadraticListCount
 
 ## Manuscript statement and status
 
-Paper statement: [Theorem 5.22, p. 53](../../../binary-field-counterexamples.pdf#page=53).
+Paper statement: [Theorem 5.22, p. 50](../../../binary-field-counterexamples.pdf#page=50).
 Public theorem: `BinaryFieldCounterexamples.quadratic_forms_near_johnson_sharp`.
 The original `quadratic_forms_near_johnson` is a weaker compatibility corollary.
 **Both clauses proved.** The received pair keeps the exact individual bounds,

@@ -10,14 +10,14 @@ public import Mathlib.Analysis.SpecificLimits.Basic
 /-!
 # Padding retention tends to one
 
-The probability in Lemma 5.14 (`lem:locator-padding`, p. 46) is at least
+The probability in Lemma 5.14 (`lem:locator-padding`, p. 43) is at least
 `1 - 2^(r-s)` for `r ≤ s < d`.  Here the negative exponent is written exactly
 as `(1/2)^(s-r)`.  Its half-rate specialization is the estimate in the proof
-of Corollary 5.15 (`cor:gold-half-rate`, p. 46).
+of Corollary 5.15 (`cor:gold-half-rate`, p. 44).
 
 For every rank parameter bounded by `d/4`, the half-rate retention tends to
 one as `d` tends to infinity.  In particular this applies to the explicit
-`denseT` choice of Corollary 5.2 (`cor:gold-dense-domains`, p. 37).
+`denseT` choice of Corollary 5.2 (`cor:gold-dense-domains`, p. 35).
 -/
 
 @[expose] public section

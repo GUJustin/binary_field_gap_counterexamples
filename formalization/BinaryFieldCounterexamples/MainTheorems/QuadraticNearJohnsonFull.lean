@@ -12,7 +12,7 @@ public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.Thre
 /-!
 # Main theorem 4.1 with its decoding list for the same first input
 
-[Theorem 4.1, pp. 28–30](../../../binary-field-counterexamples.pdf#page=28)
+[Theorem 4.1, pp. 26–29](../../../binary-field-counterexamples.pdf#page=26)
 has an exact quadratic exceptional population on every prescribed binary
 additive domain of size `N = 16K`. The paragraph after its proof also asserts
 that the very same first input has `M = (N−1)(N−2)/6` distinct codewords at

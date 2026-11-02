@@ -8,7 +8,7 @@ public import Mathlib.Data.Set.Card.Arithmetic
 /-!
 # Variable-size products of affine-flat locators
 
-The shared-coefficient step of Lemma 6.1 (p. 58), Section 6.1, allows different
+The shared-coefficient step of Lemma 6.1 (p. 51), Section 6.1, allows different
 flat sizes. A product loses at least `w` degrees whenever a nonleading term is
 selected. Disjointness identifies the sum of flat sizes with the support size.
 -/

@@ -8,7 +8,7 @@ autoImplicit = false
 [[require]]
 name = "Arklib"
 git = "https://github.com/Verified-zkEVM/ArkLib.git"
-rev = "fa14552d40e793f2ea26e65c440306aae0c08a26"
+rev = "c488a3a4dabd74c543ee39836523b116dbc7ba2b"
 
 [[lean_lib]]
 name = "BinaryFieldCounterexamples"

@@ -257,8 +257,9 @@ theorem constrainedFrames_card [Fintype V] (U : Submodule (ZMod 2) V)
     norm_num [hU,Fin.prod_univ_succ]
   have ho : Nat.card {b : V // b ∉ U}=2^Module.finrank (ZMod 2) V-8 := by
     rw [Nat.card_eq_fintype_card,Fintype.card_subtype_compl]
-    rw [Module.card_eq_pow_finrank (K := ZMod 2) (V := V),
-      Module.card_eq_pow_finrank (K := ZMod 2) (V := U)]
+    rw [Module.card_fintype (Module.finBasis (ZMod 2) V),
+      Module.card_fintype (Module.finBasis (ZMod 2) U)]
+    simp only [Fintype.card_fin]
     norm_num [hU]
   rw [←Nat.card_congr (constrainedFrameEquiv U)]
   change Nat.card ({s : Fin 3 → U // LinearIndependent (ZMod 2) s} ⊕

@@ -14,7 +14,7 @@ public import BinaryFieldCounterexamples.Constructions.ExactHalfAgreement.BadSet
 
 ## Manuscript statement and status
 
-Paper statement: [Theorem 4.7, p. 35](../../../binary-field-counterexamples.pdf#page=35).
+Paper statement: [Theorem 4.7, p. 33](../../../binary-field-counterexamples.pdf#page=33).
 Public theorem: `BinaryFieldCounterexamples.exact_half_agreement`.
 **Proved.** The original full statement is verified without transitive admissions.
 
@@ -43,7 +43,7 @@ Choose `β ∈ F \ D`, put `L = L_D`, `λ = L'`,
 `R = sqrt(L - λ X)`, and `S = R + sqrt(λ β)`.
 Set `f(x) = S(x)/(x - β)` and `g(x) = 1/(x - β)`.
 Prove the polynomial square roots exist in this binary finite-field setting.
-Use [Lemma 3.13, p. 24](../../../binary-field-counterexamples.pdf#page=24), reciprocal agreement, and interpolation to obtain
+Use [Lemma 3.13, p. 23](../../../binary-field-counterexamples.pdf#page=23), reciprocal agreement, and interpolation to obtain
 the claimed individual and common agreements in the shared ArkLib interface.
 -/
 

@@ -9,16 +9,16 @@ public import BinaryFieldCounterexamples.Constructions.Gold.DenseFiniteAssembly
 /-!
 # Gold counts in every larger containing field
 
-The introductory clause following Corollary 5.2 follows from monotonicity
-of the finite collision quotient, without requiring the larger field to
-contain a previously chosen challenge field.
+An additional larger-extension consequence of Corollary 5.2, not printed
+in the current paper, follows from monotonicity of the finite collision quotient.
+The larger field need not contain a previously chosen challenge field.
 -/
 
 @[expose] public section
 namespace BinaryFieldCounterexamples.Gold
 
 /-- Theorem 5.1's second collision quotient is monotone in the challenge-field
-size, proving the larger-extension clause accompanying Corollary 5.2. -/
+size, proving an additional larger-extension consequence of Corollary 5.2. -/
 theorem gold_collision_quotient_mono (N δ L q₀ q : ℕ)
     (hNq : N < q₀) (hqq : q₀ ≤ q) (hL : 1 ≤ L) :
     (L : ℚ) * ((q₀ : ℚ) - N) / ((q₀ : ℚ) - N + (δ : ℚ) * (L - 1)) ≤

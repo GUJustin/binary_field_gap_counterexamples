@@ -29,7 +29,7 @@ bounds to two-sided multiples of `N^(3/4)` coordinates.
 namespace BinaryFieldCounterexamples
 open Filter
 
-/-- Discussion, lines 23--25: Corollary 5.15 supplies superpolynomial counts
+/-- Section 8, paragraph *Rates other than 1/b²*: Corollary 5.15 supplies superpolynomial counts
 while agreement approaches `5/8`, for the same half-rate pair with common
 agreement exactly `1/2`. The cutoff precedes every prescribed dense domain. -/
 theorem discussion_half_rate_superpolynomial_limit (c : ℕ) (b ε : ℝ)
@@ -102,7 +102,7 @@ theorem discussion_half_rate_superpolynomial_limit (c : ℕ) (b ε : ℝ)
     have hstrict := Real.rpow_lt_rpow_of_exponent_lt (by norm_num : (1:ℝ)<2) hexp
     exact hstrict.trans_le hcount
 
-/-- Introduction, line 341: on a full binary field the quarter-rate dense
+/-- Section 1, the informal version of Corollary 5.2: on a full binary field the quarter-rate dense
 Gold example lies below Johnson by `Θ(N^(3/4))` coordinates, equivalently
 `Θ(N^(-1/4))` in agreement fraction. Both bounds concern the same actual pair. -/
 theorem introduction_full_field_johnson_deficit :

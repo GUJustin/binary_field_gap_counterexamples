@@ -13,8 +13,8 @@ public import Mathlib.Analysis.SpecialFunctions.Pow.Real
 The displayed decimals are certified as rational intervals. Logarithm
 intervals use the finite Taylor estimate for `log((1+x)/(1-x))`, avoiding
 large integer powers at decimal denominators. Every calculation is
-kernel-checked. Table 6's Johnson percentages round to 37.8 percent,
-correcting the paper's prose value of 37.7 percent.
+kernel-checked. The Johnson agreements for the Table 4 configurations round
+to 37.8 percent, as printed in Section 5.8 and Section 7.
 -/
 @[expose] public section
 namespace BinaryFieldCounterexamples
@@ -143,7 +143,7 @@ theorem native128_percentage_gaps :
     (24415/1000:ℚ)<100*(16193/32768-1/4:ℚ) ∧
       100*(16193/32768-1/4:ℚ)<24425/1000 := by norm_num
 
-/-- Table 6: each displayed combination-agreement percentage lies strictly
+/-- Table 4: each displayed combination-agreement percentage lies strictly
 inside its two-decimal rounding interval, for all four actual parameter rows. -/
 theorem longfellow_table_percentages :
     (26155/1000:ℚ)<100*(845/3230:ℚ) ∧ 100*(845/3230:ℚ)<26165/1000 ∧
@@ -152,7 +152,7 @@ theorem longfellow_table_percentages :
     (25435/1000:ℚ)<100*(874/3436:ℚ) ∧ 100*(874/3436:ℚ)<25445/1000 := by norm_num
 
 /-- Section 5.8's `14.3%` common agreement and `57.1%` unique-decoding
-agreement are certified by two-sided rounding intervals for every Table 6 row. -/
+agreement are certified by two-sided rounding intervals for every Table 4 row. -/
 theorem longfellow_common_unique_percentages (N K : ℕ)
     (h : (N,K)∈Longfellow.parameterPairs) :
     (1425/100:ℚ)<100*(K:ℚ)/N ∧ 100*(K:ℚ)/N<(1435/100:ℚ) ∧
@@ -174,8 +174,8 @@ theorem sqrt_interval (q l u : ℚ) (hl : 0≤l) (hq : 0≤q)
   have hquR : (q:ℝ)<(u:ℝ)^2:=by exact_mod_cast hqu
   constructor <;> nlinarith
 
-/-- Section 5.8 and the introduction: all four Johnson agreements lie
-between `37.75%` and `37.85%`, so round to `37.8%`, correcting the printed `37.7%`. -/
+/-- Section 5.8 and Section 7: all four Johnson agreements lie
+between `37.75%` and `37.85%`, so round to the printed `37.8%`. -/
 theorem longfellow_johnson_percentages (N K : ℕ)
     (h : (N,K)∈Longfellow.parameterPairs) :
     (3775/100:ℝ)<100*Real.sqrt ((K:ℝ)/N) ∧
@@ -192,7 +192,7 @@ theorem longfellow_johnson_percentages (N K : ℕ)
   constructor <;> linarith
 
 /-- Section 5.8's `about 12 percentage points` loss below Johnson: every
-Table 6 configuration has a loss strictly between `11.5` and `12.5` points. -/
+Table 4 configuration has a loss strictly between `11.5` and `12.5` points. -/
 theorem longfellow_johnson_gap_percentages (N K : ℕ)
     (h : (N,K)∈Longfellow.parameterPairs) :
     (115/10:ℝ) < 100*Real.sqrt ((K:ℝ)/N)-100*((K:ℝ)+384)/N ∧

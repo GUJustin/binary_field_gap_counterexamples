@@ -9,7 +9,7 @@ public import BinaryFieldCounterexamples.PaperSemantics
 /-!
 # Main theorem companion: every interior rate is covered
 
-The open interval in Corollary 5.24, p. 56 contains each fixed rate strictly
+The open interval in Corollary 5.24, p. 50 contains each fixed rate strictly
 between zero and one for a sufficiently large fixed binary power. This numeric
 coverage assertion is proved independently of the proved dense construction
 in `DenseAllRates.lean`. The exponent is chosen after the rate and fixed offset,

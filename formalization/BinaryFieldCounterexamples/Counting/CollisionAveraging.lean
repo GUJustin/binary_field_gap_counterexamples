@@ -17,7 +17,7 @@ This file proves the finite counting lemma used to turn a family of indexed
 challenges into many distinct challenge values.  Collisions are unordered: a fiber of
 size `v` contributes `v.choose 2`.
 
-The main theorem is Lemma 3.19 (Collision averaging), p. 27, of the paper.  It
+The main theorem is Lemma 3.19 (Collision averaging), p. 26, of the paper.  It
 chooses one parameter at which both the additive and second-moment image bounds
 hold.  The final corollary records the loss of at most one value when zero is
 discarded.

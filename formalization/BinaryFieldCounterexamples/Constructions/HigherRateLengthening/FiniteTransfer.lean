@@ -14,7 +14,7 @@ A decoding list on a subset is lengthened to a prescribed larger domain by
 multiplication by the nodal polynomial of its complement. Every new coordinate
 agrees, while the original agreement count and number of distinct explaining
 polynomials are preserved. Balanced padding is performed inside the smaller domain first;
-this is the finite mechanism of [Corollary 5.16, p. 47](../../../../binary-field-counterexamples.pdf#page=47),
+this is the finite mechanism of [Corollary 5.16, p. 45](../../../../binary-field-counterexamples.pdf#page=45),
 “Higher rates on every dense binary domain”.
 -/
 

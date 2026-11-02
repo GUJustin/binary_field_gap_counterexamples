@@ -13,7 +13,7 @@ import Mathlib.Tactic.Ring
 /-!
 # Corollary 5.3: the full-field fixed-extension logarithmic expansion
 
-The proof of Corollary 5.3, p. 38, prints
+The proof of Corollary 5.3, p. 36, prints
 `log₂(L/N^e) = n - 2e² + 3e - 1 + O_e(1)` for the full-field Gold
 population. Here `N = 2^(2n)` and `L` is the guaranteed locator count from
 Theorem 5.1, as identified by `Gold.full_field_extension_list_eq`.

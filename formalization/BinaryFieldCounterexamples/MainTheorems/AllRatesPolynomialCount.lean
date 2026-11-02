@@ -10,8 +10,8 @@ public import BinaryFieldCounterexamples.Constructions.AllRates.PolynomialCountC
 /-!
 # Main theorem companion: polynomial exceptional populations at every rate
 
-This proves the “in particular” clause of Theorem 4.5 (p. 33) and the following
-paragraph (p. 33). For fixed rate and exponent, one threshold below Johnson,
+This proves the “in particular” clause of Theorem 4.5 (p. 31) and the following
+paragraph (p. 32). For fixed rate and exponent, one threshold below Johnson,
 one positive constant and one cutoff work uniformly over all sufficiently
 large binary domains. When `q ≥ N^s`, the actual nonzero exceptional set has
 at least `c N^s` elements. The same guarantee holds with both inputs far when

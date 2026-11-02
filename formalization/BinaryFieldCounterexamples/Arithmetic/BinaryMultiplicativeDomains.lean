@@ -10,7 +10,7 @@ public import Mathlib.Algebra.Ring.Parity
 /-!
 # Binary fields have no nontrivial power-of-two multiplicative domains
 
-The unnumbered observation in Section 1, lines 57--59, explains why smooth
+The unnumbered observation in Section 1, paragraph *How far below Johnson?*, explains why smooth
 multiplicative domains of power-of-two size do not exist in binary fields.
 The field cardinality is derived from characteristic two; it is not an extra
 hypothesis. Lagrange's theorem then forces a multiplicative subgroup of size
@@ -19,7 +19,7 @@ hypothesis. Lagrange's theorem then forces a multiplicative subgroup of size
 @[expose] public section
 namespace BinaryFieldCounterexamples
 
-/-- Section 1, lines 57--59: the multiplicative group of every finite field
+/-- Section 1, paragraph *How far below Johnson?*: the multiplicative group of every finite field
 of characteristic two has odd order. -/
 theorem prose_binary_unit_group_odd
     (F : Type*) [Field F] [Fintype F] [CharP F 2] : Odd (Nat.card Fˣ) := by
@@ -33,7 +33,7 @@ theorem prose_binary_unit_group_odd
   rw [Nat.odd_iff, Nat.card_eq_fintype_card, Fintype.card_units]
   omega
 
-/-- Section 1, lines 57--59: a multiplicative subgroup of a binary field
+/-- Section 1, paragraph *How far below Johnson?*: a multiplicative subgroup of a binary field
 with cardinality `2^k` must have exponent `k=0`. -/
 theorem prose_binary_multiplicative_subgroup_power_two_exponent
     {F : Type*} [Field F] [Fintype F] [CharP F 2]
@@ -45,7 +45,7 @@ theorem prose_binary_multiplicative_subgroup_power_two_exponent
   have heven : Even (2^k) := Nat.even_pow.mpr ⟨by decide, hk⟩
   exact hodd.not_two_dvd_nat (heven.two_dvd.trans hdiv)
 
-/-- Section 1, lines 57--59: every multiplicative subgroup of power-of-two
+/-- Section 1, paragraph *How far below Johnson?*: every multiplicative subgroup of power-of-two
 size in a binary field is trivial, so it cannot be a nontrivial smooth domain. -/
 theorem prose_binary_multiplicative_subgroup_power_two_trivial
     {F : Type*} [Field F] [Fintype F] [CharP F 2]

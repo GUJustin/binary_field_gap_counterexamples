@@ -6,7 +6,7 @@ module
 public import BinaryFieldCounterexamples.MainTheorems.QuadraticNearJohnsonExact
 public import Mathlib.Analysis.SpecialFunctions.Pow.Real
 /-!
-# Exact arithmetic for the numerical prose in Sections 1 and 4.2
+# Exact arithmetic supporting the numerical prose in Sections 1, 4.2, 5.7, 6.4, 7 and 8
 
 These certificates address the domain densities, the quadratic exceptional
 population at length `2^22`, the 22-query arithmetic, and the rounded Johnson
@@ -19,7 +19,8 @@ namespace BinaryFieldCounterexamples
 set_option maxHeartbeats 1000000
 set_option exponentiation.threshold 100000
 
-/-- Section 1, the LeanVM domain paragraph: a `2^22`-point additive domain
+/-- Additional finite check, not printed in the current paper: for the LeanVM parameters
+of Section 5.1, a `2^22`-point additive domain
 in a `2^64`-element field has density exactly `2^(-42)`. -/
 theorem prose_leanvm_domain_density
     {B : Type*} [Field B] [Fintype B] (D : AddSubgroup B)
@@ -29,7 +30,7 @@ theorem prose_leanvm_domain_density
     show (42 : ℝ) = (42 : ℕ) by norm_num, Real.rpow_natCast]
   norm_num
 
-/-- Section 1, the Binius64 domain paragraph: a `2^27`-point additive domain
+/-- Section 5.7, a density consequence of the Binius64 domain parameters: a `2^27`-point additive domain
 occupies exactly `1/32` of its containing `2^32`-element field. -/
 theorem prose_native27_domain_density
     {B : Type*} [Field B] [Fintype B] (D : AddSubgroup B)
@@ -103,7 +104,7 @@ theorem prose_sixty_bit_query_threshold_percentage :
     (by norm_num : (0 : ℝ) ≤ 303/2000) (by decide : (22 : ℕ) ≠ 0)).mp hhi
   constructor <;> linarith
 
-/-- Section 4.2's `or less` clause: for nonnegative agreement, a twenty-second
+/-- A consequence of Section 4.2's query threshold after Corollary 4.6: for nonnegative agreement, a twenty-second
 power at most `2^(-60)` is equivalent to agreement at most the exact threshold. -/
 theorem prose_sixty_bit_query_target_iff (δ : ℝ) (hδ : 0 ≤ δ) :
     δ^22 ≤ (2 : ℝ)^(-60 : ℝ) ↔ δ ≤ (2 : ℝ)^(-30/11 : ℝ) := by
@@ -111,7 +112,7 @@ theorem prose_sixty_bit_query_target_iff (δ : ℝ) (hδ : 0 ≤ δ) :
   exact pow_le_pow_iff_left₀ hδ (Real.rpow_nonneg (by norm_num) _)
     (by decide : (22 : ℕ) ≠ 0)
 
-/-- Section 1's half-rate Johnson agreement: `sqrt(1/2)` rounds to
+/-- Section 7, paragraph *Dense and sparse domains*: the half-rate Johnson agreement `sqrt(1/2)` rounds to
 `70.71%`, lying strictly between `70.705%` and `70.715%`. -/
 theorem prose_half_rate_johnson_percentage :
     (70705/1000 : ℝ) < 100*Real.sqrt (1/2 : ℝ) ∧
@@ -183,7 +184,7 @@ theorem prose_query_johnson_sixty_bit_shortfall :
   · norm_num
 
 
-/-- Introduction, line 198: the limiting Johnson fraction at rate `1/16`
+/-- Section 1, the subspace-locator informal theorem: the limiting Johnson fraction at rate `1/16`
 is exactly `25%`, as opposed to its smaller finite-coordinate threshold. -/
 theorem prose_sixteenth_rate_johnson_percentage :
     100 * Real.sqrt (1/16 : ℝ) = 25 := by
@@ -193,14 +194,14 @@ theorem prose_sixteenth_rate_johnson_percentage :
   rw [h]
   norm_num
 
-/-- Introduction, lines 285--286: the soundness ceilings `20` and `27`
-are respectively `108` and `101` bits below the stated `128`-bit target. -/
+/-- Additional arithmetic, not printed in the current paper: the ceilings `20`
+and `27` from Section 6.4 are respectively `108` and `101` bits below `128`. -/
 theorem prose_tree_bit_shortfalls :
     (128 - 20 : ℕ) = 108 ∧ (128 - 27 : ℕ) = 101 ∧
       100 < (128 - 20 : ℕ) ∧ 100 < (128 - 27 : ℕ) := by
   norm_num
 
-/-- Discussion, lines 24--25: `5/8` is exactly `0.625`, while the half-rate
+/-- Section 8, paragraph *Rates other than 1/b²*: `5/8` is exactly `0.625`, while the half-rate
 limiting Johnson fraction `1/√2` rounds to `0.707` to three decimal places. -/
 theorem prose_discussion_half_rate_decimals :
     (5/8 : ℝ) = 625/1000 ∧

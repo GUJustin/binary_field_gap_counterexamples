@@ -160,8 +160,8 @@ theorem leaf_index_card (n : ℕ) : Fintype.card (Fin (n+1) → ZMod 2)=2^(n+1) 
 theorem templateSpace_finrank (n : ℕ) : Module.finrank (ZMod 2) (TemplateSpace n)=2^(n+2)-1 := by
   apply Nat.pow_right_injective (by decide : 1<(2:ℕ))
   dsimp only
-  rw [←templateSpace_card,←Nat.card_eq_fintype_card,Module.natCard_eq_pow_finrank (K := ZMod 2)]
-  simp [Nat.card_eq_fintype_card]
+  rw [←templateSpace_card, Module.card_fintype (Module.finBasis (ZMod 2) (TemplateSpace n))]
+  simp
 /-- Every leaf has the stated affine codimension `h=n+2`. -/
 theorem leafFlat_direction_finrank (n : ℕ) (s : Fin (n+1) → ZMod 2) (b : ZMod 2) :
     Module.finrank (ZMod 2) (leafFlat n s b).direction=2^(n+2)-1-(n+2) := by

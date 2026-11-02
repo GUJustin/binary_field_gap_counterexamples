@@ -19,11 +19,13 @@ public import BinaryFieldCounterexamples.Constructions.Trees.HalfAgreementAsympt
 
 ## Manuscript statement and status
 
-Paper statement: [Theorem 6.10, p. 63](../../../binary-field-counterexamples.pdf#page=63).
-Public theorem: `BinaryFieldCounterexamples.half_rate_decision_trees`.
-**Proved.** The concrete theorem below covers all specified heights and the
-height-two remark, using the exact constrained support count and padded locator
-construction.
+Paper statement: [Theorem 6.10, p. 56](../../../binary-field-counterexamples.pdf#page=56).
+The leading count `min {M/2, q/N} ≤ count` is proved by
+`BinaryFieldCounterexamples.half_rate_decision_trees_intrinsic_full` in
+`MainTheorems/IntrinsicAvoidingTrees.lean`. The declaration
+`BinaryFieldCounterexamples.half_rate_decision_trees` below proves the more
+precise collision-energy bound `Z(M,E)`. **Proved.** Both use the exact
+constrained support count and padded locator construction.
 
 Let `D ⊆ F` be binary additive with `N = 2^d`, where `q = |F| > N`.
 Choose `h ≥ 3` with `d ≥ 2^h - 1`, and put `K = N/2`, `w = N/2^(h+1)`.
@@ -39,15 +41,18 @@ The support counts are
 Put `M = M_h(d)` and
 `E = ((K - w - K²/(N-w)) M² + w M)/2`.
 There is one pair with `agr_K(g) = CA_K(f,g) = K`, `agr_K(f) ≤ K + w - 1`,
-and at least
+and at least `min {M/2, q/N} = Ω_h(min {N^(2^h-h-1), q/N})` distinct
+nonzero exceptional challenges at agreement `K + w`. More precisely, the count
+is at least
 
-`max { M - floor(E/(q-N)), ceil((q-N) M²/((q-N) M + 2 E)) }`
+`Z(M,E) = max { M - floor(E/(q-N)), ceil((q-N) M²/((q-N) M + 2 E)) }`
 
-distinct nonzero exceptional challenges at agreement `K + w`. Here `E` denotes the
-manuscript's collision bound `F`, renamed in prose to avoid confusion with the
+Here `E` denotes the manuscript's collision bound `F`, renamed in prose to avoid confusion with the
 field. Rational expressions and floors must not become truncated natural division.
 
-For fixed height, `M_h(d) = Θ_h(N^(2^h-h-1))`, and uniformly over containing
+The probability and gap statements below are accompanying consequences, rather
+than clauses of the current Theorem 6.10 statement. For fixed height,
+`M_h(d) = Θ_h(N^(2^h-h-1))`, and uniformly over containing
 challenge fields the exceptional probability is at least
 `Ω_h(min {N^(2^h-h-1)/q, 1/N})`. The distinct count is of order `M_h(d)`
 when `q ≥ N M_h(d)`. Heights `3,4,5` give agreement fractions
@@ -59,7 +64,7 @@ extends the finite and probability declarations to `h ≥ 2`.
 /-!
 ## Companion contract: half agreement on the whole domain
 
-Paper statement: [Corollary 6.7, p. 61](../../../binary-field-counterexamples.pdf#page=61) in the same manuscript section.
+Paper statement: [Corollary 6.7, p. 55](../../../binary-field-counterexamples.pdf#page=55) in the same manuscript section.
 Public theorem: `BinaryFieldCounterexamples.half_agreement_trees`.
 **Proved.** Let `D ⊆ F` be binary additive with `N = 2^d` and
 `q = |F| > N`. Choose `h ≥ 2` with `d ≥ τ_h = 2^h - 1`. This companion uses

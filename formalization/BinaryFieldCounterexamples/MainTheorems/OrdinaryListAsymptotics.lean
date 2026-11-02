@@ -10,7 +10,7 @@ public import BinaryFieldCounterexamples.Constructions.OrdinaryListAsymptotics.S
 /-!
 # Main theorem: decoding lists approaching Johnson over the domain field
 
-Paper statement: [Corollary 5.23, p. 55](../../../binary-field-counterexamples.pdf#page=55).
+Paper statement: [Corollary 5.23, p. 50](../../../binary-field-counterexamples.pdf#page=50).
 
 For each fixed scalar field of cardinality `b`, all `n ≥ 4` and every field
 `B` of cardinality `N=b^(2n)` carrying the scalar embedding, the explicit

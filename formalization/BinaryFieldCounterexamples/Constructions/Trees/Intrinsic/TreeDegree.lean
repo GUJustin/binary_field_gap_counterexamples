@@ -9,7 +9,7 @@ public import BinaryFieldCounterexamples.BooleanFunctions.DegreeBranch
 /-!
 # Degree and the complete structure of intrinsic trees
 
-[Lemma 6.4](../../../../../binary-field-counterexamples.pdf#page=60), in
+[Lemma 6.4](../../../../../binary-field-counterexamples.pdf#page=53), in
 Section 6.2, states balance, exact degree, essential dimension, affine leaves,
 affine closure, complementation, quotient invariance, and the base count 56.
 This module completes the degree clauses and exposes the whole structure

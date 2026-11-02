@@ -14,7 +14,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.MomentPopulation
 
 ## Manuscript statement and status
 
-Paper statement: [Corollary 5.18, p. 49](../../../binary-field-counterexamples.pdf#page=49).
+Paper statement: [Corollary 5.18, p. 46](../../../binary-field-counterexamples.pdf#page=46).
 Public theorem: `BinaryFieldCounterexamples.native128Example_sharp`.
 The original `native128Example` remains a compatible weaker statement.
 **Proved.** The concrete endpoint includes the exact numerical certificate.
@@ -52,7 +52,7 @@ The probability bound additionally requires a certified real-power inequality.
 /-!
 ## Companion contract: Gold families at rate one half
 
-Paper statement: [Corollary 5.15, p. 46](../../../binary-field-counterexamples.pdf#page=46).
+Paper statement: [Corollary 5.15, p. 44](../../../binary-field-counterexamples.pdf#page=44).
 Public theorem: `BinaryFieldCounterexamples.gold_half_rate_sharp`.
 The original `gold_half_rate` keeps its earlier conservative count.
 **Proved.** Let `B = GF(2^m)` and `D ≤ B` be binary additive of
@@ -77,7 +77,7 @@ of the quarter-rate finite example without a further argument.
 
 Proof plan: choose one Gold witness per retained nonzero challenge. Its agreement
 set is invariant under the polar radical of dimension `d - 2 t`. Apply
-[Lemma 5.14, p. 46](../../../binary-field-counterexamples.pdf#page=46) with initial degree bound `K₀ = N/4` and padding dimension
+[Lemma 5.14, p. 43](../../../binary-field-counterexamples.pdf#page=43) with initial degree bound `K₀ = N/4` and padding dimension
 `w = d - 2`, hence padding size `N/4`. Use the exact retained fraction `p`, the
 new strict degree bound, and `T + (N/4)(1-T/N) = T_half`, where
 `T = N/2 - N/2^(t+1)`. For the dense-domain parameter choices, the original union bound still implies `p → 1`.
@@ -91,7 +91,7 @@ Obtain initial agreement `T₀ = 63 N/128` and strict witness degree below
 `K₀ = N/4 - N/256`. Keep this stronger degree bound: the generic quarter-rate
 conclusion alone leaves no demonstrated room for padding.
 The quadratic polar radical has dimension `d - 2 t = 15`, which supplies the
-translation invariance required by [Lemma 5.14, p. 46](../../../binary-field-counterexamples.pdf#page=46).
+translation invariance required by [Lemma 5.14, p. 43](../../../binary-field-counterexamples.pdf#page=43).
 -/
 
 /-!

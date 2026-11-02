@@ -8,7 +8,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.FullSource
 /-!
 # Main theorem: Gold counting for the manuscript's full received word
 
-This companion to Theorem 5.1, p. 36, fixes the decoding-list word explicitly
+This companion to Theorem 5.1, p. 34, fixes the decoding-list word explicitly
 as the full square root of `L_D-lambda_0 X`, transported to each affine domain.
 The previous list theorem uses only its top two terms. The explaining degree
 is exactly half the root count for the full source too.

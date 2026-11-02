@@ -7,7 +7,7 @@ public import BinaryFieldCounterexamples.MainTheorems.SuperpolynomialNearJohnson
 /-!
 # Main theorem: Dense Gold bounds at codimension at most three
 
-This is the in-particular clause of Corollary 5.2 (p. 37). At fixed
+This is the in-particular clause of Corollary 5.2 (p. 35). At fixed
 codimension `c≤3`, the list and distinct nonzero exceptional count have exponent
 `d²/8-O_c(d)`, the deficit is `Θ_c(N^(-(1/4:ℝ)))`, the exceptional probability is
 `Ω_c(N^(-(1/2:ℝ)))`, and the actual alphabet has size `2^c N`. The complete

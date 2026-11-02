@@ -8,7 +8,7 @@ public import BinaryFieldCounterexamples.Constructions.GoldAllRates.RateBounds
 /-!
 # Main theorem: every fixed rate on every dense binary domain
 
-Paper statement: [Corollary 5.17, p. 48](../../../binary-field-counterexamples.pdf#page=48),
+Paper statement: [Corollary 5.17, p. 45](../../../binary-field-counterexamples.pdf#page=45),
 “Every fixed rate on every dense binary domain”. Public theorems:
 `BinaryFieldCounterexamples.gold_all_rates` and
 `BinaryFieldCounterexamples.gold_all_rates_translate`. **Proved.**

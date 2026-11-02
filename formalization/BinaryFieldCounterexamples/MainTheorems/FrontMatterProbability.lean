@@ -9,9 +9,9 @@ public import BinaryFieldCounterexamples.MainTheorems.RateEighthProbability
 /-!
 # Main theorem companions: the front-matter probability certificates
 
-This module assembles the four numerical consequences in the abstract,
-Section 1, and Table 1. The probabilities concern actual exceptional challenge
-sets on prescribed domains. Decimal comparisons use exact integer powers.
+This module assembles the probability bounds in Section 1, Section 4.2 and
+Table 6, together with two stronger finite checks not printed in the current
+paper. The probabilities concern actual exceptional challenge sets on prescribed domains. Decimal comparisons use exact integer powers.
 The statement in Section 1 at length `2^20` needs the challenge-field size
 `2^128`; that field size is explicit here.
 -/
@@ -35,7 +35,8 @@ theorem frontmatter_90585_count_lower :
     show (200 : ℝ) = (200 : ℕ) by norm_num, Real.rpow_natCast, Real.rpow_natCast]
   exact_mod_cast frontmatter_90585_integer_certificate
 
-/-- Table 1's `N=2^22` proper-subfield example: the exact exceptional probability
+/-- Not printed in the current paper; kept as a stronger finite check.
+For the `N=2^22` proper-subfield example, the exact exceptional probability
 is strictly greater than `2^(-87)` in a 128-bit challenge field. -/
 theorem quadratic_length22_probability
     {B F : Type*} [Field B] [Fintype B] [CharP B 2]
@@ -156,7 +157,8 @@ theorem rate_eighth_two_repetitions_product_probability
   simp only [Finset.card_product, Fintype.card_prod, Nat.cast_mul]
   ring
 
-/-- Abstract: on every proper-subfield binary domain larger than `2^20`,
+/-- Not printed in the current paper; kept as a stronger finite check.
+On every proper-subfield binary domain larger than `2^20`,
 Theorem 4.1's exact count has probability greater than `2^(-90)` over a
 128-bit challenge field. The message length and threshold remain literal. -/
 theorem quadratic_above_length20_probability

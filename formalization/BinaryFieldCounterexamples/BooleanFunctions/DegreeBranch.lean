@@ -9,7 +9,7 @@ public import Mathlib.LinearAlgebra.Pi
 /-!
 # Degree of independent branches on abstract binary spaces
 
-The recursive degree argument of Lemma 6.4 (Section 6.2, p. 60) uses independent
+The recursive degree argument of Lemma 6.4 (Section 6.2, p. 53) uses independent
 coordinates for the selector and both children. This module identifies abstract
 product spaces with those coordinates and transports `degree_branchFunction`.
 The bound is invariant under surjective affine parametrizations, so ignored

@@ -11,7 +11,7 @@ public import BinaryFieldCounterexamples.Constructions.Longfellow.Probability
 # Main theorem: Longfellow's four binary extension domains
 
 This proves the specialization in
-[Corollary 5.19, p. 50](../../../binary-field-counterexamples.pdf#page=50) of the paper. Let `B` have
+[Corollary 5.19, p. 48](../../../binary-field-counterexamples.pdf#page=48) of the paper. Let `B` have
 `2^16` elements and let the challenge field `F` have `2^128` elements. On every
 prescribed domain `S` containing an embedded affine binary 11-space, for
 

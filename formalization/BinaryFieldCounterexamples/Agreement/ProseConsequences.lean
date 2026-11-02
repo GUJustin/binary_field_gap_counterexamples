@@ -162,7 +162,7 @@ theorem prose_canonical_reduction_changes_extension_value
     exact mul_ne_zero hβ0 (sub_ne_zero.mpr hβ1)
 
 
-/-- Section 3.1, line 113: a gap of one coordinate vanishes as length grows,
+/-- Section 3.1, paragraph *The common-agreement gap*: a gap of one coordinate vanishes as length grows,
 so it eventually lies below every fixed positive fractional proximity loss. -/
 theorem prose_single_coordinate_gap_vanishes (ε : ℝ) (hε : 0 < ε) :
     ∃ N₀ : ℕ, ∀ {F : Type*} [Field F] (D : Finset F) (K C : ℕ) (f g : D → F),

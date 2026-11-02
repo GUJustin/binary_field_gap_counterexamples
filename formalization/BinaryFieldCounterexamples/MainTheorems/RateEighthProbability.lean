@@ -11,7 +11,7 @@ public import BinaryFieldCounterexamples.Constructions.RateEighth.Probability
 # Main theorem: decimal probability at rate `1/8`
 
 This proves the final numerical clause of
-[Corollary 4.6, p. 34](../../../binary-field-counterexamples.pdf#page=34).
+[Corollary 4.6, p. 33](../../../binary-field-counterexamples.pdf#page=33).
 On every prescribed binary additive domain of size `2^20` in a field of size
 `2^64`, and every translate of that domain, there is one fixed pair with
 strict Reed–Solomon message bound `K = 2^17`, second-input and common agreement

@@ -20,7 +20,7 @@ hypothesis is necessary and is made explicit here.
 namespace BinaryFieldCounterexamples
 attribute [local instance] Classical.decEq
 
-/-- Section 7, final paragraph: above the common agreement of two native
+/-- Section 7, paragraph *Scope*: above the common agreement of two native
 words, every exceptional challenge belongs to their containing subfield. -/
 theorem native_badChallenges_subset_subfield
     {B F : Type*} [Field B] [Fintype B] [Field F] [Fintype F] [Algebra B F]
@@ -40,7 +40,7 @@ theorem native_badChallenges_subset_subfield
   have hub := agreementLE_extensionLinearWord D K C f g hc θ hout p hp
   exact (not_le_of_gt hCT) (hcount.trans hub)
 
-/-- Section 7, final paragraph: the native pair has at most the subfield's
+/-- Section 7, paragraph *Scope*: the native pair has at most the subfield's
 cardinality many exceptional challenges above its common agreement. -/
 theorem native_badChallenges_card_le_subfield
     {B F : Type*} [Field B] [Fintype B] [Field F] [Fintype F] [Algebra B F]
@@ -55,7 +55,7 @@ theorem native_badChallenges_card_le_subfield
   exact (Finset.card_le_card (native_badChallenges_subset_subfield D K C T f g hc hCT)).trans
     (by simp [Finset.card_image_of_injective _ (algebraMap B F).injective])
 
-/-- Section 7, final paragraph: uniform exceptional probability for a native
+/-- Section 7, paragraph *Scope*: uniform exceptional probability for a native
 pair is at most `|B|/|F|`, provided the threshold exceeds common agreement. -/
 theorem native_exceptional_probability_le_subfield
     {B F : Type*} [Field B] [Fintype B] [Field F] [Fintype F] [Algebra B F]

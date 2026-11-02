@@ -10,7 +10,7 @@ public import Mathlib.Tactic.NormNum
 /-!
 # Exact decimal certificate for the rate `1/8` example
 
-The final numerical clause of Corollary 4.6 (p. 34) compares the exact count
+The final numerical clause of Corollary 4.6 (p. 33) compares the exact count
 `45812722234` with `2^(64-28.585)`. Taking positive 200th powers reduces this
 to the integer inequality `2^7083 < 45812722234^200`. The proof uses
 kernel-checked `norm_num`; no floating-point approximation or native evaluation

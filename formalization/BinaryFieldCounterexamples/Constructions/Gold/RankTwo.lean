@@ -377,7 +377,8 @@ theorem rankTwo_smaller_level_coset {V : Type*} [AddCommGroup V]
     simpa [q,ha] using he
 
 
-/-- The rank-two paragraph: `P` vanishes on precisely the smaller subspace
+/-- A supporting identity for Section 5.3, paragraph *Rank two*: `P` vanishes
+on precisely the smaller subspace
 level `W` inside `D`, recovering its `N/4` agreement set. -/
 theorem rankTwoLocator_eval_eq_zero_iff (D W : AddSubgroup B) (u v : B) (hv : v ≠ 0)
     (hcomp : subspacePolynomial D = subspacePolynomial W^4+
@@ -393,8 +394,8 @@ theorem rankTwoLocator_eval_eq_zero_iff (D W : AddSubgroup B) (u v : B) (hv : v 
   · intro hx
     simp [rankTwoLocator,(subspacePolynomial_eval_eq_zero_iff W x).mpr hx]
 
-/-- All polynomial clauses of the rank-two paragraph after Lemma 5.12 in
-one theorem, on each actual index-four subspace `W ≤ D` with `d=k+3 ≥ 3`:
+/-- The construction in Section 5.3, paragraph *Rank two*, with additional
+polynomial identities in one theorem, on each actual index-four subspace `W ≤ D` with `d=k+3 ≥ 3`:
 quartic composition, the normalized Boolean quotient, its `3N/4` simple
 roots, the source-conversion identity, the exact locator, its smaller level,
 the coefficient match with Theorem 4.1, and full-source degree `N/8`. -/
@@ -432,9 +433,9 @@ theorem rankTwo_subspace_locators_full (D W : AddSubgroup B) (hWD : W ≤ D)
   omega
 
 
-/-- The rank-two paragraph's unrepaired formulation: a rank-two quadratic
+/-- Additional consequence, not printed in the current paper: a rank-two quadratic
 vanishing on its radical has a smaller level that is one coset of that
-codimension-two radical. This is the case explicitly used by the paper. -/
+codimension-two radical. -/
 theorem rankTwo_vanishing_radical_smaller_level_coset {V : Type*} [AddCommGroup V]
     [Module (ZMod 2) V] [Fintype V] (Q : BinaryQuadraticData V) (k : ℕ)
     (hdim : Module.finrank (ZMod 2) V = k+3)

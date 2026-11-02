@@ -11,7 +11,7 @@ public import Mathlib.Algebra.Group.Subgroup.Ker
 # Inner polynomials of additive compositions
 
 This module proves the full arbitrary-field assertion of the paper's
-[Lemma 3.10, p. 22](../../../binary-field-counterexamples.pdf#page=22)
+[Lemma 3.10, p. 21](../../../binary-field-counterexamples.pdf#page=21)
 (`lem:additive-composition` in `sections/preliminaries.tex`): if `L = A.comp P`,
 `L` and `A` are additive, `A ≠ 0`, and `P.eval 0 = 0`, then `P` is additive
 and its roots form an additive subgroup.

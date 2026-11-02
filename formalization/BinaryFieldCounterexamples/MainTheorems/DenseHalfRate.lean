@@ -10,7 +10,7 @@ public import BinaryFieldCounterexamples.Constructions.Gold.DenseHalfRate
 
 ## Manuscript correspondence and full quantitative contract
 
-[Corollary 5.15, p. 46](../../../binary-field-counterexamples.pdf#page=46),
+[Corollary 5.15, p. 44](../../../binary-field-counterexamples.pdf#page=44),
 the consequently clause, is proved here. For fixed codimension `c`, every
 sufficiently large binary `d`-space in a field of size `2^(d+c)` supports a
 received pair in an actual finite extension, with message length `N/2` and

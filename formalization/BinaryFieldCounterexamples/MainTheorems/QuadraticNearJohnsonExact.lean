@@ -9,7 +9,7 @@ public import BinaryFieldCounterexamples.Constructions.QuadraticNearJohnson.Shar
 /-!
 # Main theorem: exact quadratic exceptional population on prescribed binary domains
 
-Paper statement: [Theorem 4.1, p. 28](../../../binary-field-counterexamples.pdf#page=28).
+Paper statement: [Theorem 4.1, p. 26](../../../binary-field-counterexamples.pdf#page=26).
 For every binary additive domain D of size N=16K, with K≥2 a power of two,
 and every proper finite extension, one pair has exact common agreement2K−1,
 first-input agreement at most2K, and second-input agreement exactly2K−1.

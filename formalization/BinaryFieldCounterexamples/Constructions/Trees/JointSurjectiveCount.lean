@@ -171,9 +171,9 @@ theorem linearEnd_card : Nat.card (T →ₗ[ZMod 2] T) =
   let e := Module.finBasis (ZMod 2) T
   rw [Nat.card_congr (linearMapDualFrameEquiv (V := T) e)]
   rw [Nat.card_fun]
-  have hc := Module.natCard_eq_pow_finrank (K := ZMod 2)
-    (V := Module.Dual (ZMod 2) T)
-  simp only [Nat.card_eq_fintype_card,ZMod.card,Subspace.dual_finrank_eq] at hc
+  have hc : Nat.card (Module.Dual (ZMod 2) T) = 2 ^ Module.finrank (ZMod 2) T := by
+    rw [Nat.card_congr (Module.finBasis (ZMod 2) (Module.Dual (ZMod 2) T)).equivFun.toEquiv,
+      Nat.card_fun, Nat.card_fin, Subspace.dual_finrank_eq, Nat.card_zmod]
   rw [hc,Nat.card_fin,←pow_mul,pow_two]
 
 /-- Exact count of maps jointly surjective with a fixed binary surjection. -/

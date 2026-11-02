@@ -15,11 +15,15 @@ public import BinaryFieldCounterexamples.Constructions.Gold.DenseAsymptoticTheor
 
 ## Manuscript statements and status
 
-Paper statements: [Corollary 5.2, p. 37](../../../binary-field-counterexamples.pdf#page=37) and its characteristic-separation consequence
-[Theorem 5.4, p. 38](../../../binary-field-counterexamples.pdf#page=38).
-Public theorem names: `BinaryFieldCounterexamples.superpolynomial_near_johnson` and
-`BinaryFieldCounterexamples.no_fixed_polynomial_exceptional_bound`.
-Both conclusions are proved from the finite Gold theorem.
+Paper statements: [Corollary 5.2, p. 35](../../../binary-field-counterexamples.pdf#page=35) and its characteristic-separation consequence
+[Theorem 5.4, p. 36](../../../binary-field-counterexamples.pdf#page=36).
+Theorem 5.4 is proved by
+`no_fixed_polynomial_exceptional_bound_optimal_exponent` in
+`MainTheorems/OptimalFixedThreshold.lean`: its field-size exponent depends only
+on the proposed count exponent `b`. Corollary 5.2 is proved here by
+`BinaryFieldCounterexamples.superpolynomial_near_johnson`. The declaration
+`no_fixed_polynomial_exceptional_bound` below is a weaker compatibility endpoint.
+All these conclusions follow from the finite Gold theorem.
 
 ## Two regimes and their quantifiers
 
@@ -32,14 +36,15 @@ polynomials explain `f` and `g` simultaneously on the same set.
 The first conclusion lets the agreement tend to `1/2` and gives a
 superpolynomial exceptional count with a quasipolynomial challenge field.
 The second fixes any agreement `a < 1/2` and defeats any proposed polynomial
-count bound, with a polynomial challenge field whose exponent is chosen
-*after* that bound. Do not combine the field-size claim of the second regime
-with the exceptional-count claim of the first.
+count bound, with a polynomial challenge field whose exponent depends only
+on the proposed count exponent `b`. The weaker endpoint in this file permits
+further dependence on the agreement and leading constant. The near-Johnson
+superpolynomial count uses the quasipolynomial field of the first regime.
 
 ### Agreement approaching Johnson
 
-Fix an integer `c ≥ 0`, put `θ = min {1/4, 1/(c+1)}`, and choose
-`t = min {floor(d/4), floor((d+c-1)/(c+1))}`.
+Fix an integer `c ≥ 0`, and put `θ = min {1/4, 1/(c+1)}` and
+`e_c = θ (1 - 2 θ)`.
 For every sufficiently large `d` and every binary additive `d`-space
 `D ⊆ B = GF(2^(d+c))`, with `N = 2^d`, there exist quarter-rate decoding
 lists over `B` and received pairs over some finite extension `F/B` such that
@@ -51,29 +56,32 @@ lists over `B` and received pairs over some finite extension `F/B` such that
 * the nonzero exceptional probability is `Ω_c(N^(-1 + 2 θ))`; and
 * `log₂ |F| = θ (1 - 2 θ) (log₂ N)² + O_c(log N)`.
 
-The constants and cutoff are uniform over `D`. For `c ≤ 3`, the leading count
+The choice `t = min {floor(d/4), floor((d+c-1)/(c+1))}` belongs to the
+proof of Corollary 5.2, rather than its statement. The same agreement `T`
+serves the list and pair. The constants and cutoff are uniform over `D`.
+For `c ≤ 3`, the leading count
 exponent is `1/8`, deficit order is `N^(-1/4)`, and probability lower-bound order
 is `N^(-1/2)`. The decoding-list alphabet has size `2^c N`.
 
 ### No fixed polynomial exceptional bound
 
-The separate characteristic-separation consequence says: for every real
-`1/4 < a < 1/2`, `b > 0`, and `C₀ > 0`, arbitrarily large quarter-rate binary
-codes on hyperplanes have polynomial-size challenge fields and one received
-pair with `CA_(N/4) = N/4` and more than `C₀ N^b` exceptional challenges at
-`ceil(a N)` agreements. These violate every proximity-loss allowance
-`ε* < a - 1/4`. The compatibility endpoint in this file permits the polynomial
-field-size exponent to depend on `a,b,C₀`. The stronger endpoint
-`no_fixed_polynomial_exceptional_bound_optimal_exponent` in
-`MainTheorems.OptimalFixedThreshold` chooses `floor(b)+1` before `a,C₀`,
-and therefore proves the paper's assertion that the exponent depends only on `b`.
+Theorem 5.4 says: fix `b > 0`. There is an exponent depending only on `b`
+such that, for every `1/4 < a < 1/2` and `C₀ > 0`, arbitrarily large
+quarter-rate binary codes have one received pair with `CA_(N/4) = N/4` and
+more than `C₀ N^b` exceptional challenges at `ceil(a N)` agreements, over a
+challenge field polynomial in `N` with that exponent. These pairs violate
+every proximity-loss allowance `ε* < a - 1/4`.
 
-Explicitly, the quantifier order is
+The strong declaration `no_fixed_polynomial_exceptional_bound_optimal_exponent`
+fixes `e = floor(b)+1` before `a,C₀`, on a binary hyperplane in a base field of
+size `2N`, with `|F| = (2N)^e`. Its quantifier order is
+`∀ b > 0, ∃ e, ∀ a,C₀, ∀ N₀, ∃ N ≥ N₀, ∃ B,D,F,f,g`.
+The paper uses the sufficient exponent `max {2, floor(b)+1}`.
+
+The weaker compatibility endpoint below instead has quantifier order
 `∀ a,b,C₀, ∃ e, ∀ N₀, ∃ N ≥ N₀, ∃ B,D,F,f,g`.
-The base field has size `2N`, the domain is a binary hyperplane in it, and
-`|F| = (2N)^e`. There are more than `C₀ N^b` distinct challenges `z` for which
-`∃ h_z` with the required degree and agreement. This does not assert a
-superpolynomial count in a single family with a fixed polynomial field size.
+Neither endpoint asserts a superpolynomial count in a single family with a
+fixed polynomial field size.
 
 For example, `a = 0.49`, `b = 2`, `C₀ = 1` can use `e = 4` and the finite
 construction parameter `t = 6`. Agreement is `0.4921875`, the challenge field

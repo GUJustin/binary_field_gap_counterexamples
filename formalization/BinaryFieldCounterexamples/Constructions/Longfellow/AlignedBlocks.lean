@@ -7,7 +7,7 @@ public import BinaryFieldCounterexamples.Constructions.Longfellow.DomainCoordina
 /-!
 # Longfellow's aligned binary blocks
 
-Section 5.8, `sections/applications.tex` lines 109–110, states that an aligned
+Section 5.8, paragraph *The domains*, states that an aligned
 block of `2^k` integer indices maps to an affine space of dimension `k`.
 For `k ≤ 16` and a block contained in the sixteen-bit index range, we identify
 that space as the translate of the binary span of the first `k` basis vectors.

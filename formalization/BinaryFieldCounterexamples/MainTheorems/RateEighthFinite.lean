@@ -16,7 +16,7 @@ public import BinaryFieldCounterexamples.Constructions.AllRates.Padding
 
 ## Manuscript statement and status
 
-Paper statement: [Corollary 4.6, p. 34](../../../binary-field-counterexamples.pdf#page=34).
+Paper statement: [Corollary 4.6, p. 33](../../../binary-field-counterexamples.pdf#page=33).
 Public theorems: `BinaryFieldCounterexamples.rate_eighth_finite` and
 `BinaryFieldCounterexamples.rate_eighth_finite_count`.
 **Proved.**

@@ -8,7 +8,7 @@ public import BinaryFieldCounterexamples.BooleanFunctions.DegreeAffineBranchRoot
 /-!
 # The unique intrinsic root, by top-degree monomials
 
-[Lemma 6.5](../../../../../binary-field-counterexamples.pdf#page=61), in
+[Lemma 6.5](../../../../../binary-field-counterexamples.pdf#page=54), in
 Section 6.2, characterizes the root by the degree of its product with the tree.
 Adapted independent coordinates and the separated monomial types in
 `DegreeRoot` force every other block of a candidate linear functional to vanish.
